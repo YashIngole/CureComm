@@ -25,7 +25,7 @@ class Body extends StatelessWidget {
                     color: ksearchcolor.withOpacity(0.5),
                   )
                 ]),
-            child: TextField(
+            child: const TextField(
                 textAlign: TextAlign.left,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(

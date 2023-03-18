@@ -8,17 +8,17 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomnav(),
-      appBar: BuildAppBar(),
-      body: Stack(
-        children: [
-          BackgroundGradient(),
-          Body(),
-        ],
-      ),
-      backgroundColor:
-          Colors.transparent, // set background color to transparent
-    );
+        bottomNavigationBar: bottomnav(),
+        appBar: BuildAppBar(),
+        body: Stack(
+          children: [
+            BackgroundGradient(),
+            Body(),
+          ],
+        ),
+        backgroundColor:
+            Colors.transparent, // set background color to transparent
+        resizeToAvoidBottomInset: false);
   }
 
   // BuildAppBar method implementation
@@ -53,7 +53,7 @@ AppBar BuildAppBar() {
     ],
     title: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
+      children: const [
         Text(
           "\u{1F44B} Hello",
           style: TextStyle(
@@ -77,7 +77,7 @@ class BackgroundGradient extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [kbackgroundColor2, Color.fromARGB(255, 238, 236, 232)],
           begin: Alignment.topCenter,

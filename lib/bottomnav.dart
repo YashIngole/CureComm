@@ -4,12 +4,12 @@ import 'home.dart';
 
 Container bottomnav() {
   return Container(
-    padding: EdgeInsets.only(
+    padding: const EdgeInsets.only(
         left: kdefaultpadding * 2,
         right: kdefaultpadding * 2,
         bottom: kdefaultpadding),
-    height: 60,
-    decoration: BoxDecoration(
+    height: 50,
+    decoration: const BoxDecoration(
       color: Colors.white,
 
       // boxShadow: [
