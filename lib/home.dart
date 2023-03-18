@@ -27,19 +27,20 @@ AppBar BuildAppBar() {
     backgroundColor: Color.fromARGB(255, 237, 188, 160),
     elevation: 0,
     leading: IconButton(
-      icon: SvgPicture.asset(
-        "assets/fluent_navigation-unread-24-filled.svg",
+      icon: Image.asset(
+        "assets/fluent_navigation-unread-24-filled.png",
         color: Colors.black,
       ),
       onPressed: () {},
     ),
     actions: <Widget>[
       IconButton(
+          padding: EdgeInsets.all(7),
           onPressed: () {},
           icon: Transform.scale(
-            scale: 1.7,
-            child: SvgPicture.asset(
-              "assets/Vector.svg",
+            scale: 1.2,
+            child: Image.asset(
+              "assets/Vector.png",
               color: Colors.black,
             ),
           ))
