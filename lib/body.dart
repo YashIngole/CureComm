@@ -24,6 +24,7 @@ class body extends StatelessWidget {
             ]),
         child: TextField(
             textAlign: TextAlign.left,
+            style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
                 hintText: "Search",
                 hintStyle: TextStyle(color: Colors.black26),
