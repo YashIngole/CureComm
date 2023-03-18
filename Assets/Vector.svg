@@ -1,0 +1,35 @@
+<svg width="45" height="54" viewBox="0 0 45 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_ddddd_1_707)">
+<path d="M33.9363 29.6653C35.7314 27.5055 36.98 24.945 37.5763 22.2005C38.1726 19.4561 38.0991 16.6084 37.3621 13.8983C36.6251 11.1883 35.2462 8.69561 33.3421 6.63117C31.4379 4.56673 29.0646 2.99126 26.4228 2.03805C23.7811 1.08484 20.9486 0.78192 18.165 1.15492C15.3813 1.52792 12.7285 2.56587 10.4309 4.18095C8.13327 5.79604 6.25844 7.94075 4.96499 10.4337C3.67155 12.9266 2.99755 15.6943 3.00001 18.5028C3.00095 22.5856 4.43969 26.5375 7.06376 29.6653L7.03876 29.6866C7.12626 29.7916 7.22626 29.8816 7.31626 29.9853C7.42876 30.1141 7.55001 30.2353 7.66626 30.3603C8.01626 30.7403 8.37626 31.1053 8.75376 31.4478C8.86876 31.5528 8.98751 31.6503 9.10376 31.7503C9.50376 32.0953 9.91501 32.4228 10.3413 32.7278C10.3963 32.7653 10.4463 32.8141 10.5013 32.8528V32.8378C13.4289 34.898 16.9214 36.0037 20.5013 36.0037C24.0811 36.0037 27.5736 34.898 30.5013 32.8378V32.8528C30.5563 32.8141 30.605 32.7653 30.6613 32.7278C31.0863 32.4216 31.4988 32.0953 31.8988 31.7503C32.015 31.6503 32.1338 31.5516 32.2488 31.4478C32.6263 31.1041 32.9863 30.7403 33.3363 30.3603C33.4525 30.2353 33.5725 30.1141 33.6863 29.9853C33.775 29.8816 33.8763 29.7916 33.9638 29.6853L33.9363 29.6653ZM20.5 8.50282C21.6125 8.50282 22.7001 8.83272 23.6251 9.4508C24.5501 10.0689 25.2711 10.9474 25.6968 11.9752C26.1226 13.0031 26.234 14.1341 26.0169 15.2252C25.7999 16.3163 25.2642 17.3186 24.4775 18.1053C23.6908 18.892 22.6885 19.4277 21.5974 19.6447C20.5062 19.8618 19.3752 19.7504 18.3474 19.3246C17.3196 18.8989 16.4411 18.1779 15.823 17.2529C15.2049 16.3279 14.875 15.2403 14.875 14.1278C14.875 12.636 15.4676 11.2052 16.5225 10.1503C17.5774 9.09545 19.0082 8.50282 20.5 8.50282ZM10.5088 29.6653C10.5304 28.024 11.1974 26.4573 12.3655 25.304C13.5335 24.1507 15.1086 23.5037 16.75 23.5028H24.25C25.8914 23.5037 27.4665 24.1507 28.6346 25.304C29.8026 26.4573 30.4696 28.024 30.4913 29.6653C27.7498 32.1357 24.1903 33.5029 20.5 33.5029C16.8097 33.5029 13.2502 32.1357 10.5088 29.6653Z" fill="black"/>
+</g>
+<defs>
+<filter id="filter0_ddddd_1_707" x="0" y="0" width="44.975" height="53.0037" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_707"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_1_707" result="effect2_dropShadow_1_707"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="1" dy="3"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17 0"/>
+<feBlend mode="normal" in2="effect2_dropShadow_1_707" result="effect3_dropShadow_1_707"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="1" dy="7"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="effect3_dropShadow_1_707" result="effect4_dropShadow_1_707"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="2" dy="12"/>
+<feGaussianBlur stdDeviation="2.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03 0"/>
+<feBlend mode="normal" in2="effect4_dropShadow_1_707" result="effect5_dropShadow_1_707"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect5_dropShadow_1_707" result="shape"/>
+</filter>
+</defs>
+</svg>

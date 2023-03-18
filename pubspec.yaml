@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^0.22.0  
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -54,8 +55,11 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - Assets/icons/
-    - Assets/icons/fluent_navigation-unread-24-filled.png
+    - assets/icons/
+    - assets/icons/fluent_navigation-unread-24-filled.png
+    - assets\icons\fluent_navigation-unread-24-filled.png
+    - assets/images/
+    - assets/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
