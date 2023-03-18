@@ -34,16 +34,18 @@ AppBar BuildAppBar() {
       onPressed: () {},
     ),
     actions: <Widget>[
-      IconButton(
-          padding: EdgeInsets.all(7),
-          onPressed: () {},
-          icon: Transform.scale(
-            scale: 1.2,
-            child: Image.asset(
-              "assets/Vector.png",
-              color: Colors.black,
-            ),
-          ))
+      Container(
+        child: IconButton(
+            padding: EdgeInsets.all(20),
+            onPressed: () {},
+            icon: Transform.scale(
+              scale: 2.8,
+              child: Image.asset(
+                "assets/Vector.png",
+                color: Colors.black,
+              ),
+            )),
+      )
     ],
   );
 }
