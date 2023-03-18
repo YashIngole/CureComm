@@ -43,13 +43,13 @@ class Body extends StatelessWidget {
         Container(
           width: 350,
           height: 230,
-          child: Image.asset("assets/tile2.png", fit: BoxFit.contain),
+          child: Image.asset("assets/tile1.png", fit: BoxFit.contain),
         ),
         SizedBox(height: 0),
         Container(
           width: 350,
           height: 230,
-          child: Image.asset("assets/tile1.png", fit: BoxFit.contain),
+          child: Image.asset("assets/tile2.png", fit: BoxFit.contain),
         ),
       ],
     );
