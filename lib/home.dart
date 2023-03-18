@@ -27,13 +27,23 @@ AppBar BuildAppBar() {
     backgroundColor: Color.fromARGB(255, 237, 188, 160),
     elevation: 0,
     leading: IconButton(
-      icon: Icon(Icons.list),
+      icon: SvgPicture.asset(
+        "assets/fluent_navigation-unread-24-filled.svg",
+        color: Colors.black,
+      ),
       onPressed: () {},
     ),
     actions: <Widget>[
-      IconButton(onPressed: () {}, icon: Icon(Icons.account_circle_outlined)),
+      IconButton(
+          onPressed: () {},
+          icon: Transform.scale(
+            scale: 1.7,
+            child: SvgPicture.asset(
+              "assets/Vector.svg",
+              color: Colors.black,
+            ),
+          ))
     ],
-    title: const Text("Hello"),
   );
 }
 
