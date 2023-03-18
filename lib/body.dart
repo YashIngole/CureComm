@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:healthchats/constants.dart';
 
-class body extends StatelessWidget {
-  const body({super.key});
+class Body extends StatelessWidget {
+  const Body({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.only(top: 25),
+          padding: EdgeInsets.only(top: 10),
           child: Container(
             height: 62,
             width: 344, //figma dimensions
@@ -39,22 +39,18 @@ class body extends StatelessWidget {
                     suffixIcon: Icon(Icons.filter_list_sharp))),
           ),
         ),
-        SizedBox(height: 40),
+        SizedBox(height: 30),
         Container(
           width: 350,
-          height: 220,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/tile1.png"), fit: BoxFit.contain)),
+          height: 230,
+          child: Image.asset("assets/tile2.png", fit: BoxFit.contain),
         ),
+        SizedBox(height: 0),
         Container(
           width: 350,
-          height: 220,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/tile2.png"), fit: BoxFit.contain),
-          ),
-        )
+          height: 230,
+          child: Image.asset("assets/tile1.png", fit: BoxFit.contain),
+        ),
       ],
     );
   }

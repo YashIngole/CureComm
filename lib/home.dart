@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:healthchats/body.dart';
 import 'package:healthchats/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:healthchats/bottomnav.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomnav(),
       appBar: BuildAppBar(),
       body: Stack(
         children: [
           BackgroundGradient(),
-          body(),
+          Body(),
         ],
       ),
       backgroundColor:
