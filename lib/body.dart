@@ -23,14 +23,16 @@ class body extends StatelessWidget {
               )
             ]),
         child: TextField(
-          textAlign: TextAlign.center,
-          decoration: InputDecoration(
-            hintText: "Search",
-            hintStyle: TextStyle(color: Colors.black),
-            enabledBorder: InputBorder.none,
-            focusedBorder: InputBorder.none,
-          ),
-        ),
+            textAlign: TextAlign.left,
+            decoration: InputDecoration(
+                hintText: "Search",
+                hintStyle: TextStyle(color: Colors.black26),
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                contentPadding: EdgeInsets.all(23.0),
+                prefixIcon: Icon(Icons.search),
+                iconColor: Colors.black,
+                suffixIcon: Icon(Icons.filter_list_sharp))),
       ),
     );
   }
