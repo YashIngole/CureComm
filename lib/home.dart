@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
       body: Stack(
         children: [
           BackgroundGradient(),
-          // body(),
+          body(),
         ],
       ),
       backgroundColor:
