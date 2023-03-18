@@ -1,30 +1,60 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:healthchats/body.dart';
 import 'package:healthchats/constants.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class home extends StatelessWidget {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BuildAppbar(),
-      body: body(),
+      appBar: BuildAppBar(),
+      body: Stack(
+        children: [
+          BackgroundGradient(),
+          // body(),
+        ],
+      ),
+      backgroundColor:
+          Colors.transparent, // set background color to transparent
     );
   }
 
-  AppBar BuildAppbar() {
-    return AppBar(
-      backgroundColor: kbackgroundColor,
-      elevation: 0,
-      leading: IconButton(
-        icon: Icon(Icons.list),
-        onPressed: () {},
+  // BuildAppBar method implementation
+}
+
+AppBar BuildAppBar() {
+  return AppBar(
+    backgroundColor: Color.fromARGB(255, 237, 188, 160),
+    elevation: 0,
+    leading: IconButton(
+      icon: Icon(Icons.list),
+      onPressed: () {},
+    ),
+    actions: <Widget>[
+      IconButton(onPressed: () {}, icon: Icon(Icons.account_circle_outlined)),
+    ],
+    title: const Text("Hello"),
+  );
+}
+
+class BackgroundGradient extends StatelessWidget {
+  const BackgroundGradient({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 237, 188, 160),
+            Color.fromARGB(255, 238, 236, 232)
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
       ),
-      actions: <Widget>[
-        IconButton(onPressed: () {}, icon: Icon(Icons.account_circle_outlined)),
-      ],
-      title: const Text("Hello"),
     );
   }
 }
