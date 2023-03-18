@@ -60,6 +60,7 @@ flutter:
     - assets\icons\fluent_navigation-unread-24-filled.png
     - assets/images/
     - assets/
+    - assets/Vector.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
