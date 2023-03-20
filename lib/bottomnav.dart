@@ -6,7 +6,8 @@ Container bottomnav() {
   return Container(
     padding: const EdgeInsets.only(
         left: kdefaultpadding * 2,
-        right: kdefaultpadding * 2,
+        right: kdefaultpadding *
+            2, //padding onky from tleft right and bottom for the bottom navigation bar
         bottom: kdefaultpadding),
     height: 50,
     decoration: const BoxDecoration(
@@ -20,6 +21,7 @@ Container bottomnav() {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
+        //widget array for icon buttons at bottom of the navigation bar
         Transform.scale(
             scale: 1,
             child: IconButton(onPressed: () {}, icon: Icon(Icons.home))),

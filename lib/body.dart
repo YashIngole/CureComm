@@ -9,15 +9,17 @@ class Body extends StatelessWidget {
     return Column(
       children: [
         Container(
+          //widget for searh bar
           padding: EdgeInsets.only(top: 10),
           child: Container(
             height: 62,
             width: 344, //figma dimensions
             margin: EdgeInsets.symmetric(horizontal: kdefaultpadding),
-            // height: 54,
+            // height: 54, //default dimension
             decoration: BoxDecoration(
                 color: ksearchcolor,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(
+                    20), //for circular border in search bar
                 boxShadow: [
                   BoxShadow(
                     offset: Offset(0, 10),
@@ -39,7 +41,9 @@ class Body extends StatelessWidget {
                     suffixIcon: Icon(Icons.filter_list_sharp))),
           ),
         ),
-        SizedBox(height: 30),
+        SizedBox(
+            height:
+                30), //adding tiles of chatbox and chatbot...have to replace with the widgets instead of containers
         Container(
           width: 350,
           height: 230,
