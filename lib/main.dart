@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthchats/home.dart';
 import 'package:healthchats/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,13 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp( 
       debugShowCheckedModeBanner: false,
       title: 'Health Chats',
       theme: ThemeData(
-          textTheme: Theme.of(context).textTheme.apply(bodyColor: Ktextcolor),
+          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: Home(),
+      home: Home(), //calling home widget on home.dart
     );
   }
 }

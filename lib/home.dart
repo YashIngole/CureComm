@@ -26,11 +26,11 @@ class Home extends StatelessWidget {
 
 AppBar BuildAppBar() {
   return AppBar(
-    toolbarHeight: 120,
+    toolbarHeight: 120, //distance of appbar from top to bottom
     backgroundColor: kbackgroundColor2,
-    elevation: 0,
+    elevation: 0, // visibility of appbar line
     leading: IconButton(
-      padding: EdgeInsets.only(left: 20),
+      padding: EdgeInsets.only(left: 20), //distance between the icon button
       icon: Image.asset(
         "assets/fluent_navigation-unread-24-filled.png",
         color: Colors.black,
@@ -52,10 +52,11 @@ AppBar BuildAppBar() {
       )
     ],
     title: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment:
+          CrossAxisAlignment.center, // alignment of the title text
       children: const [
         Text(
-          "\u{1F44B} Hello",
+          "\u{1F44B} Hello", //hello at the appbar with shaking emoji
           style: TextStyle(
               fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
         ),
@@ -79,7 +80,10 @@ class BackgroundGradient extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [kbackgroundColor2, Color.fromARGB(255, 238, 236, 232)],
+          colors: [
+            kbackgroundColor2,
+            Color.fromARGB(255, 238, 236, 232)
+          ], //range of gradient colors transitions
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
