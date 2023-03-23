@@ -19,3 +19,4 @@ const kdefaultshadow2 = BoxShadow(
 
 const kdefaultgradient = LinearGradient(
     colors: [kbackgroundColor2, Color.fromARGB(255, 238, 236, 232)]);
+const index = 1;
