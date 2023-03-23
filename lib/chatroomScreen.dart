@@ -12,7 +12,7 @@ class chatroomScreen extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 100,
         backgroundColor: kbackgroundColor2,
-        elevation: 1,
+        elevation: 0,
         centerTitle: true,
         title: Text(
           "Your Chat Rooms",
@@ -29,23 +29,29 @@ class chatroomScreen extends StatelessWidget {
         ),
       ),
       body: Wrap(children: <Widget>[
-        Container(
-          height: 250,
-          padding: EdgeInsets.all(10),
-          alignment: Alignment.topCenter,
-          child: Image.asset(
-            "assets/amico.png",
-            // alignment: Alignment.center,
-            height: double.infinity,
-            // width: double.infinity,
-            fit: BoxFit.fill,
-          ),
-        ),
+        // Container(
+        //   height: 250,
+        //   padding: EdgeInsets.all(10),
+        //   alignment: Alignment.topCenter,
+        //   child: Image.asset(
+        //     "assets/amico.png",
+        //     // alignment: Alignment.center,
+        //     height: double.infinity,
+        //     // width: double.infinity,
+        //     fit: BoxFit.fill,
+        //   ),
+        // ),
         Container(
           alignment: Alignment.center,
           child: searchbar(),
         ),
-        diseaseCard(),
+        SizedBox(
+          height: 800,
+          child: ListView.builder(
+              itemCount: diseases.length,
+              itemBuilder: (BuildContext context, int index) =>
+                  diseaseCard(diseases[index])),
+        ),
       ]),
     );
   }

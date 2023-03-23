@@ -19,4 +19,11 @@ const kdefaultshadow2 = BoxShadow(
 
 const kdefaultgradient = LinearGradient(
     colors: [kbackgroundColor2, Color.fromARGB(255, 238, 236, 232)]);
-const index = 1;
+
+final List<String> diseases = [
+  "Cancer",
+  "Diabetes",
+  "Alzheimer's",
+  "COVID-19",
+  "Mental Health",
+];
