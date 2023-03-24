@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:healthchats/chatroomScreen.dart';
 import 'package:healthchats/textchatscreen.dart';
 
 import 'constants.dart';
 
-InkWell diseaseCard(BuildContext context, String diseaseName) {
+InkWell diseaseCard(BuildContext context, String diseaseName, int index) {
   return InkWell(
     onTap: () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => textchatscreen()),
+        MaterialPageRoute(
+            builder: (context) =>
+                textchatscreen(diseases: diseases, index: index)),
       );
     },
     splashColor: kbackgroundColor2,

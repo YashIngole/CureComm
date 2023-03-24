@@ -28,3 +28,4 @@ final List<String> diseases = [
   "Mental Health",
   "Typhoid"
 ];
+

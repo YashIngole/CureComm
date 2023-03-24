@@ -50,7 +50,7 @@ class chatroomScreen extends StatelessWidget {
           child: ListView.builder(
               itemCount: diseases.length,
               itemBuilder: (BuildContext context, int index) =>
-                  diseaseCard(context, diseases[index])),
+                  diseaseCard(context, diseases[index], index)),
         ),
       ]),
     );
