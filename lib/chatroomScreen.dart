@@ -43,11 +43,14 @@ class chatroomScreen extends StatelessWidget {
           alignment: Alignment.center,
           child: searchbar(),
         ),
+        SizedBox(
+          height: 10,
+        ),
         Expanded(
           child: ListView.builder(
               itemCount: diseases.length,
               itemBuilder: (BuildContext context, int index) =>
-                  diseaseCard(diseases[index])),
+                  diseaseCard(context, diseases[index])),
         ),
       ]),
     );
