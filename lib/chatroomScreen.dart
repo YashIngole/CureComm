@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthchats/constants.dart';
 import 'package:healthchats/searchbar.dart';
+import 'package:healthchats/home.dart';
 
 import 'diseaseCard.dart';
 
@@ -29,23 +30,19 @@ class chatroomScreen extends StatelessWidget {
         ),
       ),
       body: Column(children: [
-        // Container(
-        //   height: 250,
-        //   padding: EdgeInsets.all(10),
-        //   alignment: Alignment.topCenter,
-        //   child: Image.asset(
-        //     "assets/amico.png",
-        //     // alignment: Alignment.center,
-        //     height: double.infinity,
-        //     // width: double.infinity,
-        //     fit: BoxFit.fill,
-        //   ),
-        // ),
+        Container(
+            height: 200,
+            width: 250,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/amico.png"),
+                  fit: BoxFit.contain,
+                  alignment: Alignment.center),
+            )),
         Container(
           alignment: Alignment.center,
           child: searchbar(),
         ),
-
         Expanded(
           child: ListView.builder(
               itemCount: diseases.length,

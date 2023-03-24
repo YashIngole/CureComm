@@ -21,8 +21,6 @@ const kdefaultgradient = LinearGradient(
     colors: [kbackgroundColor2, Color.fromARGB(255, 238, 236, 232)]);
 
 final List<String> diseases = [
-  "abc",
-  "lol",
   "Cancer",
   "Diabetes",
   "Alzheimer's",

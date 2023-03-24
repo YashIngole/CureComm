@@ -12,17 +12,18 @@ Container diseaseCard(String diseaseName) {
     child: Stack(
       children: <Widget>[
         Container(
-          height: 136,
-          width: 400,
+          alignment: Alignment.center,
+          height: 200,
+          width: 450,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(22),
-              color: Color.fromARGB(255, 226, 111, 111),
+              color: Color.fromARGB(255, 255, 207, 207),
               boxShadow: [kdefaultshadow]),
           child: Container(
             margin: EdgeInsets.only(right: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(22),
-                color: Color.fromARGB(255, 238, 196, 174)),
+                color: Color.fromARGB(255, 255, 235, 224)),
             child: Align(
                 alignment: Alignment.center,
                 child: Text(
