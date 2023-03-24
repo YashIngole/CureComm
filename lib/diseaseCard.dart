@@ -10,8 +10,7 @@ InkWell diseaseCard(BuildContext context, String diseaseName, int index) {
       Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) =>
-                textchatscreen(diseases: diseases, index: index)),
+            builder: (context) => textchatscreen(diseases: diseases, index: index)),
       );
     },
     splashColor: kbackgroundColor2,

@@ -26,6 +26,31 @@ final List<String> diseases = [
   "Alzheimer's",
   "COVID-19",
   "Mental Health",
-  "Typhoid"
+  "Typhoid",
+  "Huntington's disease",
+  "Kawasaki disease",
+  "Sickle cell anemia",
+  "Cystic fibrosis",
+  "Polycystic kidney disease",
+  "Lou Gehrig's disease (ALS)",
+  "Tourette syndrome",
+  "Wilson's disease",
+  "Gaucher disease",
+  "Narcolepsy",
+  "Cushing's disease",
+  "Ehlers-Danlos syndrome",
+  "Guillain-Barré syndrome",
+  "Lupus",
+  "Muscular dystrophy",
+  "Parkinson's disease",
+  "Porphyria",
+  "Prader-Willi syndrome",
+  "Sjogren's syndrome",
+  "Spinal muscular atrophy",
+  "Turner syndrome",
+  "Von Hippel-Lindau disease",
+  "Wolfram syndrome",
+  "Zellweger syndrome"
 ];
 
+const kiconcolor = Color.fromARGB(255, 231, 173, 0);
