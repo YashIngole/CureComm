@@ -28,7 +28,7 @@ class chatroomScreen extends StatelessWidget {
           },
         ),
       ),
-      body: Wrap(children: <Widget>[
+      body: Column(children: [
         // Container(
         //   height: 250,
         //   padding: EdgeInsets.all(10),
@@ -45,8 +45,8 @@ class chatroomScreen extends StatelessWidget {
           alignment: Alignment.center,
           child: searchbar(),
         ),
-        SizedBox(
-          height: 800,
+
+        Expanded(
           child: ListView.builder(
               itemCount: diseases.length,
               itemBuilder: (BuildContext context, int index) =>
