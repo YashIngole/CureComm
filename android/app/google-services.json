@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "579957371784",
+    "firebase_url": "https://health-chats-bfb93-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "health-chats-bfb93",
+    "storage_bucket": "health-chats-bfb93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579957371784:android:bd07f0fcb4e83c1f43803d",
+        "android_client_info": {
+          "package_name": "com.example.healthchats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579957371784-ljh7rhuapjpul0cf1saeufgi0srn6e29.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrdXre3UI3UEJQpso5cziuHdkXHyPWe2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579957371784-ljh7rhuapjpul0cf1saeufgi0srn6e29.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

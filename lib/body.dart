@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthchats/chatbotscreen.dart';
 import 'package:healthchats/chatroomScreen.dart';
 import 'package:healthchats/constants.dart';
-import 'package:healthchats/chatroomScreen.dart';
+
 import 'package:healthchats/searchbar.dart';
 
 class Body extends StatefulWidget {
