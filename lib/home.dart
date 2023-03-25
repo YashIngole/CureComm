@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
         bottomNavigationBar: bottomnav(),
         appBar: BuildAppBar(),
         body: Stack(
-          children: [
+          children: [  
             BackgroundGradient(),
             Body(),
           ],
