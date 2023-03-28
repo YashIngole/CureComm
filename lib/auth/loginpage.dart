@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:healthchats/auth/loginpage2.dart';
+import 'package:healthchats/constants.dart';
 
 class logInPage extends StatefulWidget {
   const logInPage({super.key});
@@ -21,16 +23,36 @@ class _logInPageState extends State<logInPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
-                    "community",
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  Image.asset("assets/pana7.png"),
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: kdefaultpadding * 1.2),
+                    child: Text(
+                        "HealthChats allows people with similar health conditions to connect with each other virtualy and share their experiences",
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w400)),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 60,
                   ),
-                  Text("Login now to see what they are talking!",
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w400))
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => loginpage2()),
+                      );
+                    },
+                    child: SizedBox(
+                        height: 40,
+                        child: Image.asset(
+                          "assets/Get started.png",
+                        )),
+                  )
                 ],
               )),
         ),
