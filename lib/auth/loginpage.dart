@@ -40,18 +40,20 @@ class _logInPageState extends State<logInPage> {
                   const SizedBox(
                     height: 60,
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => loginpage2()),
-                      );
-                    },
-                    child: SizedBox(
-                        height: 40,
-                        child: Image.asset(
-                          "assets/Get started.png",
-                        )),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: kthemecolor,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                      onPressed: () {
+                        nextScreen(context, loginpage2());
+                      },
+                      child: Text("Get Started",
+                          style: TextStyle(color: Colors.white, fontSize: 16)),
+                    ),
                   )
                 ],
               )),

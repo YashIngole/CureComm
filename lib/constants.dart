@@ -6,10 +6,20 @@ const kdefaultpadding = 20.0;
 const ksearchcolor = const Color(0xfff08080);
 const kbackgroundColor2 = const Color(0xfffcc5ad);
 const ktilecolor = const Color(0xffFBC4AB);
+const kthemecolor = const Color(0xfff08080);
 const kdefaultshadow = BoxShadow(
     offset: Offset(0, 15),
     blurRadius: 27,
     color: Color.fromARGB(255, 240, 174, 174));
+
+void nextScreen(context, page) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+}
+
+void nextScreenReplace(context, page) {
+  Navigator.pushReplacement(
+      context, MaterialPageRoute(builder: (context) => page));
+}
 
 const kdefaultshadow2 = BoxShadow(
     color: Color.fromARGB(255, 255, 221, 170),
