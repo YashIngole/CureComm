@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:healthchats/chatbotscreen.dart';
 import 'package:healthchats/chatroomScreen.dart';
 import 'package:healthchats/constants.dart';
-
+import 'package:healthchats/navigationbar.dart';
+import 'home.dart';
 import 'package:healthchats/searchbar.dart';
 
 class Body extends StatefulWidget {
-  const Body({Key? key});
+  final GlobalKey<ScaffoldState> scaffoldKey;
+  const Body({Key? key, required this.scaffoldKey}) : super(key: key);
 
   @override
   State<Body> createState() => _BodyState();
@@ -16,6 +18,54 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
+      SizedBox(
+        height: 20,
+      ),
+      SafeArea(
+        child: Row(
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(left: 20),
+                child: Expanded(
+                    child: IconButton(
+                  alignment: Alignment.bottomLeft,
+                  onPressed: () {
+                    widget.scaffoldKey.currentState!.openDrawer();
+                  },
+                  icon: Icon(Icons.menu),
+                  iconSize: 30,
+                )),
+              ),
+              Expanded(
+                  child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "\u{1F44B} Hello \n UserName", //hello at the appbar with shaking emoji
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                ],
+              )),
+              Padding(
+                padding: EdgeInsets.only(right: 20),
+                child: Expanded(
+                    child: IconButton(
+                  alignment: Alignment.centerRight,
+                  onPressed: () {},
+                  icon: Icon(Icons.person),
+                  iconSize: 30,
+                )),
+              )
+            ]),
+      ),
+      SizedBox(
+        height: 20,
+      ),
       searchbar(),
       //widget for tiles
       SizedBox(height: 20),

@@ -10,7 +10,7 @@ const kthemecolor = const Color(0xfff08080);
 const kdefaultshadow = BoxShadow(
     offset: Offset(0, 15),
     blurRadius: 27,
-    color: Color.fromARGB(255, 240, 174, 174));
+    color: Color.fromARGB(255, 255, 225, 209));
 
 void nextScreen(context, page) {
   Navigator.push(context, MaterialPageRoute(builder: (context) => page));
@@ -60,7 +60,87 @@ final List<String> diseases = [
   "Turner syndrome",
   "Von Hippel-Lindau disease",
   "Wolfram syndrome",
-  "Zellweger syndrome"
+  "Zellweger syndrome",
+  "Aarskog-Scott syndrome",
+  "Acute intermittent porphyria",
+  "Adrenoleukodystrophy",
+  "Aicardi syndrome",
+  "Alagille syndrome",
+  "Alexander disease",
+  "Angelman syndrome",
+  "Antiphospholipid syndrome",
+  "Apert syndrome",
+  "Ataxia-telangiectasia",
+  "Barth syndrome",
+  "Batten disease",
+  "Becker muscular dystrophy",
+  "Berger's disease",
+  "Bloom syndrome",
+  "Brugada syndrome",
+  "Canavan disease",
+  "Capgras syndrome",
+  "Carcinoid syndrome",
+  "Cartilage-hair hypoplasia",
+  "Castleman disease",
+  "Charcot-Marie-Tooth disease",
+  "Choroideremia",
+  "Chronic inflammatory demyelinating polyneuropathy",
+  "Churg-Strauss syndrome",
+  "Coffin-Lowry syndrome",
+  "Congenital adrenal hyperplasia",
+  "Congenital diaphragmatic hernia",
+  "Cri-du-chat syndrome",
+  "Crigler-Najjar syndrome",
+  "Cronkhite-Canada syndrome",
+  "Crouzon syndrome",
+  "Cyclic vomiting syndrome",
+  "Dandy-Walker syndrome",
+  "Diamond-Blackfan anemia",
+  "Dravet syndrome",
+  "Dubowitz syndrome",
+  "Duchenne muscular dystrophy",
+  "Eagle syndrome",
+  "Epidermolysis bullosa",
+  "Fabry disease",
+  "Familial Mediterranean fever",
+  "Fragile X syndrome",
+  "Friedreich's ataxia",
+  "Gardner syndrome",
+  "Gastroparesis",
+  "Gilles de la Tourette syndrome",
+  "Glutaric acidemia type 1",
+  "Gorlin syndrome",
+  "Hajdu-Cheney syndrome",
+  "Hereditary angioedema",
+  "Hermansky-Pudlak syndrome",
+  "Holt-Oram syndrome",
+  "Hurler syndrome",
+  "Hutchinson-Gilford progeria syndrome",
+  "Hyper IgM syndrome",
+  "Hyperhidrosis",
+  "Hypophosphatasia",
+  "Icell syndrome",
+  "Ichthyosis",
+  "Incontinentia pigmenti",
+  "Jeune syndrome",
+  "Joubert syndrome",
+  "Klinefelter syndrome",
 ];
 
 const kiconcolor = Color.fromARGB(255, 231, 173, 0);
+
+void showSnackbar(context, color, message) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(
+      message,
+      style: TextStyle(fontSize: 14),
+    ),
+    backgroundColor: color,
+    duration: const Duration(seconds: 2),
+    action: SnackBarAction(
+      label: "OK",
+      onPressed: () {},
+      textColor: Colors.white,
+    ),
+  ));
+}

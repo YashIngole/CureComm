@@ -1,46 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:healthchats/backgroundgradient.dart';
 import 'package:healthchats/constants.dart';
+
+import 'home.dart';
 
 class chatbotscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: kbackgroundColor2,
-        appBar: AppBar(
-          toolbarHeight: 100,
-          backgroundColor: kbackgroundColor2,
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            "Your Chat Bot",
-            style: TextStyle(color: Colors.black),
-          ),
-          leading: IconButton(
-            iconSize: 80,
-            icon: Image.asset(
-              "assets/back.png",
+        body: Stack(children: [
+          BackgroundGradient(),
+          Column(children: [
+            SafeArea(
+              child: Row(
+                children: [
+                  IconButton(
+                    padding: EdgeInsets.all(kdefaultpadding),
+                    onPressed: () {
+                      nextScreen(context, Home());
+                    },
+                    icon: Icon(Icons.keyboard_backspace),
+                    iconSize: 30,
+                  ),
+                ],
+              ),
             ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
-        body: Column(children: [
-           
-          Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage("assets/cuate.png"),
-              fit: BoxFit.contain,
-              alignment: Alignment.center,
-            )),
-            height: 250,
-            width: 450,
-          ),
-          Expanded(
-              child: Container(
-            decoration: BoxDecoration(color: Colors.white),
-          ))
+            Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage("assets/cuate.png"),
+                fit: BoxFit.contain,
+                alignment: Alignment.center,
+              )),
+              height: 300,
+              width: 450,
+            ),
+            Expanded(
+                child: Container(
+              decoration: BoxDecoration(color: Colors.white),
+            ))
+          ]),
         ]));
   }
 }

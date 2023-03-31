@@ -38,6 +38,7 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^2.0.0
   shared_preferences: ^2.0.20
+  side_navigation: ^1.0.4
 
 dev_dependencies:
   flutter_lints: ^2.0.0

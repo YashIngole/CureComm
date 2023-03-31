@@ -12,16 +12,10 @@ Container searchbar() {
       margin: EdgeInsets.symmetric(horizontal: kdefaultpadding),
       height: 54, //default dimension
       decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.4),
-          borderRadius:
-              BorderRadius.circular(20), //for circular border in search bar
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(0, 10),
-              blurRadius: 50,
-              color: ksearchcolor.withOpacity(0.5),
-            )
-          ]),
+        color: Colors.white.withOpacity(0.4),
+        borderRadius:
+            BorderRadius.circular(20), //for circular border in search bar
+      ),
       child: const TextField(
           textAlign: TextAlign.left,
           style: TextStyle(color: Colors.black),
