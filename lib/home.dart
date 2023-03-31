@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
         key: scaffoldKey,
         drawer: navbar(userName, email),
-        bottomNavigationBar: bottomnav(),
+        // bottomNavigationBar: bottomnav(),
 
         // appBar: BuildAppBar(),
         body: Stack(
