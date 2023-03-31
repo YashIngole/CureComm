@@ -1,11 +1,16 @@
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:healthchats/auth/registerPage.dart';
 import 'package:healthchats/home.dart';
 import 'package:healthchats/service/auth-service.dart';
+import 'package:healthchats/service/database-service.dart';
 import 'textInputdecoration.dart';
+import 'package:healthchats/helper/helperFunction.dart';
 
 import '../constants.dart';
 
@@ -153,6 +158,16 @@ class _loginpage2State extends State<loginpage2> {
           .loginWithEmailAndPassword(email, Password)
           .then((value) async {
         if (value == true) {
+          QuerySnapshot snapshot =
+              await databaseService(uid: FirebaseAuth.instance.currentUser!.uid)
+                  .gettingUserData(email);
+
+          //saving the values to our shared preferences
+
+          await helperFunctions.saveUserLoggedInStatus(true);
+          await helperFunctions.saveUserEmailSF(email);
+          await helperFunctions.saveUsernameSF(snapshot.docs[0]['fullName']);
+
           nextScreenReplace(context, Home());
         } else {
           showSnackbar(

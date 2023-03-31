@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:healthchats/chatbotscreen.dart';
 import 'package:healthchats/chatroomScreen.dart';
 import 'package:healthchats/constants.dart';
+import 'package:healthchats/helper/helperFunction.dart';
 import 'package:healthchats/navigationbar.dart';
+import 'package:healthchats/service/auth-service.dart';
 import 'home.dart';
 import 'package:healthchats/searchbar.dart';
 
@@ -15,6 +17,29 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  String userName = "";
+  String email = "";
+  AuthService authService = AuthService();
+
+  @override
+  void initState() {
+    super.initState();
+    gettingUserData();
+  }
+
+  gettingUserData() async {
+    await helperFunctions.getUserEmailFromSF().then((value) {
+      setState(() {
+        email = value!;
+      });
+    });
+    await helperFunctions.getUserNameFromSF().then((val) {
+      setState(() {
+        userName = val!;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -43,7 +68,7 @@ class _BodyState extends State<Body> {
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "\u{1F44B} Hello \n UserName", //hello at the appbar with shaking emoji
+                    "\u{1F44B} Hello \n $userName", //hello at the appbar with shaking emoji
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

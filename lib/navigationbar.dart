@@ -2,15 +2,25 @@ import 'package:healthchats/constants.dart';
 import 'package:healthchats/service/auth-service.dart';
 import 'package:side_navigation/side_navigation.dart';
 import 'package:flutter/material.dart';
+import 'body.dart';
+import 'home.dart';
 
-Drawer navbar() {
- AuthService authService = AuthService();
+Drawer navbar(String userName, String email) {
+  // String userName = "";
+  // String email = "";
+  AuthService authService = AuthService();
+
   return Drawer(
     child: ListView(
       children: [
         UserAccountsDrawerHeader(
-          accountName: Text("UserName"),
-          accountEmail: Text("UserName@gmail.com"),
+          accountName: Text(
+            userName,
+            style: TextStyle(
+                fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+          accountEmail:
+              Text(email, style: TextStyle(fontSize: 15, color: Colors.black)),
           currentAccountPicture: CircleAvatar(
             child: ClipOval(
               child: Image.network(

@@ -7,24 +7,19 @@ class AuthService {
 
   //login
 
-Future loginWithEmailAndPassword(
-       String email, String password) async {
+  Future loginWithEmailAndPassword(String email, String password) async {
     try {
       User user = (await firebaseAuth.signInWithEmailAndPassword(
               email: email, password: password))
           .user!;
 
       if (user != null) {
-        
-
         return true;
       } else {}
     } on FirebaseAuthException catch (e) {
       return e.message;
     }
   }
-
-
 
   //register
   Future registerUserWithEmailAndPassword(
@@ -36,7 +31,7 @@ Future loginWithEmailAndPassword(
 
       if (user != null) {
         //call database to update the user data
-        await databaseService(uid: user.uid).updateUserData(fullName, email);
+        await databaseService(uid: user.uid).savingUserData(fullName, email);
 
         return true;
       } else {}
