@@ -1,11 +1,10 @@
+import 'package:healthchats/auth/loginpage2.dart';
 import 'package:healthchats/constants.dart';
+import 'package:healthchats/profile.dart';
 import 'package:healthchats/service/auth-service.dart';
-import 'package:side_navigation/side_navigation.dart';
 import 'package:flutter/material.dart';
-import 'body.dart';
-import 'home.dart';
 
-Drawer navbar(String userName, String email) {
+Drawer navbar(BuildContext context, String userName, String email) {
   // String userName = "";
   // String email = "";
   AuthService authService = AuthService();
@@ -15,7 +14,7 @@ Drawer navbar(String userName, String email) {
       padding: EdgeInsets.symmetric(vertical: 30),
       children: [
         Icon(
-          Icons.account_circle,
+          Icons.account_circle_rounded,
           size: 150,
           color: Colors.grey,
         ),
@@ -34,6 +33,16 @@ Drawer navbar(String userName, String email) {
         ),
         SizedBox(
           height: 15,
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.person,
+            color: Colors.purple,
+          ),
+          title: Text("Profile"),
+          onTap: () {
+            nextScreen(context, profilePage());
+          },
         ),
         ListTile(
           leading: Icon(
@@ -97,8 +106,30 @@ Drawer navbar(String userName, String email) {
             color: Colors.purple,
           ),
           title: Text("Log out"),
-          onTap: () {
-            authService.signOut();
+          onTap: () async {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text("Log out"),
+                  content: Text("Are you sure you want to log out?"),
+                  actions: [
+                    TextButton(
+                      child: Text("Cancel"),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    TextButton(
+                      child: Text("Log out"),
+                      onPressed: () {
+                        authService.signOut().whenComplete(() {
+                          nextScreenReplace(context, loginpage2());
+                        });
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
           },
         )
       ],

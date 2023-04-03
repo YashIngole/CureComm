@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: scaffoldKey,
-        drawer: navbar(userName, email),
+        drawer: navbar(context, userName, email),
         // bottomNavigationBar: bottomnav(),
 
         // appBar: BuildAppBar(),

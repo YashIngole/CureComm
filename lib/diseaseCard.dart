@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:healthchats/chatroomScreen.dart';
 import 'package:healthchats/textchatscreen.dart';
 
 import 'constants.dart';
