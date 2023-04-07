@@ -100,7 +100,7 @@ class _BodyState extends State<Body> {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => chatroomScreen()),
+            MaterialPageRoute(builder: (context) => chatRoomScreen()),
           );
         },
         splashColor: kbackgroundColor2,

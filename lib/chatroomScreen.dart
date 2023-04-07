@@ -1,52 +1,232 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:healthchats/backgroundgradient.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
 import 'package:healthchats/constants.dart';
-import 'package:healthchats/searchbar.dart';
-import 'package:healthchats/home.dart';
+import 'package:healthchats/diseaseTile.dart';
+import 'package:healthchats/searchpage.dart';
+import 'service/auth-service.dart';
+import 'helper/helperFunction.dart';
+import 'service/database-service.dart';
 
-import 'diseaseCard.dart';
+class chatRoomScreen extends StatefulWidget {
+  const chatRoomScreen({super.key});
 
-class chatroomScreen extends StatelessWidget {
   @override
+  State<chatRoomScreen> createState() => _chatRoomScreenState();
+}
+
+class _chatRoomScreenState extends State<chatRoomScreen> {
+  @override
+  String UserName = "";
+  String email = "";
+  AuthService authService = AuthService();
+  Stream? groups;
+  bool _isLoading = false;
+  String groupName = "";
+
+  //string manipulation functions
+  String getId(String res) {
+    return res.substring(0, res.indexOf("_"));
+  }
+
+  String getName(String res) {
+    return res.substring(res.indexOf("_") + 1);
+  }
+
+  void initState() {
+    super.initState();
+    gettingUserData();
+  }
+
+  gettingUserData() async {
+    await helperFunctions.getUserEmailFromSF().then((value) {
+      setState(() {
+        email = value!;
+      });
+    });
+    await helperFunctions.getUserNameFromSF().then((val) {
+      setState(() {
+        UserName = val!;
+      });
+    });
+    //getting the list of snapshots in our database
+    await databaseService(uid: FirebaseAuth.instance.currentUser!.uid)
+        .getUserGroups()
+        .then((snapshot) {
+      setState(() {
+        groups = snapshot;
+      });
+    });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [
-        BackgroundGradient(),
-        Column(children: [
-          SafeArea(
-            child: Row(
-              children: [
-                IconButton(
-                  padding: EdgeInsets.all(kdefaultpadding),
+        appBar: AppBar(
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: kthemecolor,
+          title: Text("Groups"),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  nextScreen(context, searchPage());
+                },
+                icon: Icon(Icons.search))
+          ],
+        ),
+        body: groupList(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            popUpDialog(context);
+          },
+          elevation: 0,
+          backgroundColor: kthemecolor,
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+            size: 30,
+          ),
+        ));
+  }
+
+  popUpDialog(BuildContext context) {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return StatefulBuilder(builder: ((context, setState) {
+            return AlertDialog(
+              title: Text(
+                "Create a new group",
+                textAlign: TextAlign.left,
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _isLoading == true
+                      ? Center(
+                          child: CircularProgressIndicator(
+                            color: kthemecolor,
+                          ),
+                        )
+                      : TextField(
+                          onChanged: (val) {
+                            setState(() {
+                              groupName = val;
+                            });
+                          },
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: kthemecolor),
+                                  borderRadius: BorderRadius.circular(20)),
+                              errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.red),
+                                  borderRadius: BorderRadius.circular(20)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: kthemecolor),
+                                  borderRadius: BorderRadius.circular(20))),
+                        )
+                ],
+              ),
+              actions: [
+                ElevatedButton(
                   onPressed: () {
-                    nextScreen(context, Home());
+                    Navigator.of(context).pop();
                   },
-                  icon: Icon(Icons.keyboard_backspace),
-                  iconSize: 30,
+                  child: Text("CANCEL"),
+                  style: ElevatedButton.styleFrom(backgroundColor: kthemecolor),
                 ),
+                ElevatedButton(
+                  onPressed: () async {
+                    if (groupName != "") {
+                      setState(() {
+                        _isLoading = true;
+                      });
+                      databaseService(
+                              uid: FirebaseAuth.instance.currentUser!.uid)
+                          .CreateGroup(UserName,
+                              FirebaseAuth.instance.currentUser!.uid, groupName)
+                          .whenComplete(() {
+                        _isLoading = false;
+                      });
+                      Navigator.of(context).pop();
+                      showSnackbar(
+                          context, Colors.green, "Group created successfully.");
+                    }
+                  },
+                  child: Text("CREATE"),
+                  style: ElevatedButton.styleFrom(backgroundColor: kthemecolor),
+                )
               ],
+            );
+          }));
+        });
+  }
+
+  groupList() {
+    return StreamBuilder(
+      stream: groups,
+      builder: (context, AsyncSnapshot snapshot) {
+        //make some checks
+        if (snapshot.hasData) {
+          if (snapshot.data['groups'] != null) {
+            if (snapshot.data['groups'].length != 0) {
+              return ListView.builder(
+                itemCount: snapshot.data['groups'].length,
+                itemBuilder: (context, index) {
+                  int reverseIndex = snapshot.data['groups'].length - index - 1;
+                  return groupTile(
+                    groupId: getId(snapshot.data['groups'][reverseIndex]),
+                    groupName: getName(snapshot.data['groups'][reverseIndex]),
+                    userName: snapshot.data['fullName'],
+                  );
+                },
+              );
+            } else {
+              return noGroupWidget();
+            }
+          } else {
+            return noGroupWidget();
+          }
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(
+              color: kthemecolor,
             ),
-          ),
-          Expanded(
-            child: Image.asset(
-              "assets/amico.png",
+          );
+        }
+      },
+    );
+  }
+
+  noGroupWidget() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 25),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: () {
+              popUpDialog(context);
+            },
+            child: Icon(
+              Icons.add_circle,
+              color: Colors.grey[700],
+              size: 75,
             ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: searchbar(),
           ),
           SizedBox(
-            height: 10,
+            height: 20,
           ),
-          Expanded(
-            child: ListView.builder(
-                itemCount: diseases.length,
-                itemBuilder: (BuildContext context, int index) =>
-                    diseaseCard(context, diseases[index], index)),
-          ),
-        ]),
-      ]),
+          Text(
+            "You've not joined any group, tap on the add button to add a group",
+            textAlign: TextAlign.center,
+          )
+        ],
+      ),
     );
   }
 }

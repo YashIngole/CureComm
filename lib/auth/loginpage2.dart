@@ -46,7 +46,7 @@ class _loginpage2State extends State<loginpage2> {
                       Text(
                         "Join the conversation!",
                         style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.bold),
+                            fontSize: 25, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "And see what they are talking about",
