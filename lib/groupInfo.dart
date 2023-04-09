@@ -93,7 +93,23 @@ class _groupInfoState extends State<groupInfo> {
                 ],
               ),
             ),
-            memberList()
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: kdefaultpadding),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Members: ",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 17,
+                  ),
+                ),
+              ),
+            ),
+            memberList(),
           ],
         ),
       ),
