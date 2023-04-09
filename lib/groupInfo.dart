@@ -116,7 +116,7 @@ class _groupInfoState extends State<groupInfo> {
     );
   }
 
-  memberList() {
+  Widget memberList() {
     return StreamBuilder(
       stream: members,
       builder: (context, AsyncSnapshot snapshot) {
