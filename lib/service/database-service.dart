@@ -45,7 +45,7 @@ class databaseService {
       "members": [],
       "groupId": "",
       "recentMessage": null,
-      "recentMessageSenders": null,
+      "recentMessageSender": null,
     });
 
     //update the members
@@ -131,5 +131,16 @@ class databaseService {
         "members": FieldValue.arrayUnion(["${uid}_${userName}"])
       });
     }
+  }
+
+  //send message
+
+  sendMessage(String groupId, Map<String, dynamic> chatMessageData) async {
+    groupCollection.doc(groupId).collection("messages").add(chatMessageData);
+    groupCollection.doc(groupId).update({
+      "recentMessage": chatMessageData['message'],
+      "recentMessageSender": chatMessageData['sender'],
+      "recentMessageTime": chatMessageData['time'].toString(), 
+    });
   }
 }

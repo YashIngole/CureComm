@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:healthchats/constants.dart';
 import 'package:healthchats/groupInfo.dart';
+import 'package:healthchats/messageTile.dart';
 import 'package:healthchats/service/database-service.dart';
 
 class chatPage extends StatefulWidget {
@@ -24,6 +25,7 @@ class chatPage extends StatefulWidget {
 class _chatPageState extends State<chatPage> {
   Stream<QuerySnapshot>? chats;
   String admin = "";
+  TextEditingController messageController = TextEditingController();
   @override
   void initState() {
     getChatAndAdmins();
@@ -31,17 +33,17 @@ class _chatPageState extends State<chatPage> {
   }
 
   void getChatAndAdmins() {
-  databaseService().getChats(widget.groupId).then((val) {
-    setState(() {
-      chats = val;
+    databaseService().getChats(widget.groupId).then((val) {
+      setState(() {
+        chats = val;
+      });
     });
-  });
-  databaseService().getGroupAdmin(widget.groupId).then((val) {
-    setState(() {
-      admin = val;
+    databaseService().getGroupAdmin(widget.groupId).then((val) {
+      setState(() {
+        admin = val;
+      });
     });
-  });
-}
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +66,90 @@ class _chatPageState extends State<chatPage> {
               icon: Icon(Icons.info))
         ],
       ),
+      body: Stack(
+        children: <Widget>[
+          //chat messages here
+          chatMessages(),
+          Container(
+            alignment: Alignment.bottomCenter,
+            width: MediaQuery.of(context).size.width,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              width: MediaQuery.of(context).size.width,
+              color: Colors.grey[700],
+              child: Row(
+                children: [
+                  Expanded(
+                      child: TextFormField(
+                    controller: messageController,
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                        hintText: "Send a message",
+                        hintStyle: TextStyle(color: Colors.white, fontSize: 16),
+                        border: InputBorder.none),
+                  )),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      sendMessage();
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                          color: kthemecolor,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Center(
+                        child: Icon(
+                          Icons.send,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
+  }
+
+  chatMessages() {
+    return StreamBuilder(
+      stream: chats,
+      builder: (context, AsyncSnapshot snapshot) {
+        return snapshot.hasData
+            ? ListView.builder(
+                itemCount: snapshot.data.docs.length,
+                itemBuilder: (context, index) {
+                  return messageTile(
+                      message: snapshot.data.docs[index]['message'],
+                      sender: snapshot.data.docs[index]['sender'],
+                      sentByMe: widget.userName ==
+                          snapshot.data.docs[index]['sender']);
+                },
+              )
+            : Container();
+      },
+    );
+  }
+
+  sendMessage() {
+    if (messageController.text.isNotEmpty) {
+      Map<String, dynamic> chatMessageMap = {
+        "message": messageController.text,
+        "sender": widget.userName,
+        "time": DateTime.now().millisecondsSinceEpoch,
+      };
+
+      databaseService().sendMessage(widget.groupId, chatMessageMap);
+      setState(() {
+        messageController.clear();
+      });
+    }
   }
 }

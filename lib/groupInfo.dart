@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:healthchats/chatroomScreen.dart';
 import 'package:healthchats/constants.dart';
+import 'package:healthchats/home.dart';
 import 'package:healthchats/service/database-service.dart';
+import 'service/auth-service.dart';
 
 class groupInfo extends StatefulWidget {
   final String groupId;
@@ -50,7 +53,39 @@ class _groupInfoState extends State<groupInfo> {
         elevation: 0,
         backgroundColor: kthemecolor,
         title: Text("Group Info"),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.exit_to_app))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text("Exit"),
+                      content: Text("Are you sure you want to exit the group?"),
+                      actions: [
+                        TextButton(
+                          child: Text("Cancel"),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                        TextButton(
+                          child: Text("Log out"),
+                          onPressed: () {
+                            databaseService(
+                                    uid: FirebaseAuth.instance.currentUser!.uid)
+                                .toggleGroupJoin(widget.groupId,
+                                    getName(widget.adminName), widget.groupName)
+                                .whenComplete(() {
+                              nextScreenReplace(context, chatRoomScreen());
+                            });
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              icon: Icon(Icons.exit_to_app))
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
