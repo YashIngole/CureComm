@@ -26,6 +26,8 @@ class _chatPageState extends State<chatPage> {
   Stream<QuerySnapshot>? chats;
   String admin = "";
   TextEditingController messageController = TextEditingController();
+  ScrollController _scrollController = ScrollController();
+
   @override
   void initState() {
     getChatAndAdmins();
@@ -66,10 +68,12 @@ class _chatPageState extends State<chatPage> {
               icon: Icon(Icons.info))
         ],
       ),
-      body: Stack(
+      body: Column(
         children: <Widget>[
           //chat messages here
-          chatMessages(),
+          Expanded(
+            child: chatMessages(),
+          ),
           Container(
             alignment: Alignment.bottomCenter,
             width: MediaQuery.of(context).size.width,
@@ -122,18 +126,28 @@ class _chatPageState extends State<chatPage> {
     return StreamBuilder(
       stream: chats,
       builder: (context, AsyncSnapshot snapshot) {
-        return snapshot.hasData
-            ? ListView.builder(
-                itemCount: snapshot.data.docs.length,
-                itemBuilder: (context, index) {
-                  return messageTile(
-                      message: snapshot.data.docs[index]['message'],
-                      sender: snapshot.data.docs[index]['sender'],
-                      sentByMe: widget.userName ==
-                          snapshot.data.docs[index]['sender']);
-                },
-              )
-            : Container();
+        if (!snapshot.hasData) {
+          return Container();
+        }
+        // Wait for the ListView to build before scrolling to the bottom
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
+          _scrollController.animateTo(
+            _scrollController.position.maxScrollExtent,
+            duration: Duration(milliseconds: 300),
+            curve: Curves.easeOut,
+          );
+        });
+        return ListView.builder(
+          controller: _scrollController,
+          itemCount: snapshot.data.docs.length,
+          itemBuilder: (context, index) {
+            return messageTile(
+                message: snapshot.data.docs[index]['message'],
+                sender: snapshot.data.docs[index]['sender'],
+                sentByMe:
+                    widget.userName == snapshot.data.docs[index]['sender']);
+          },
+        );
       },
     );
   }

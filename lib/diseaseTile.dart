@@ -6,11 +6,11 @@ class groupTile extends StatefulWidget {
   final String userName;
   final String groupName;
   final String groupId;
-  const groupTile(
-      {super.key,
-      required this.groupId,
-      required this.groupName,
-      required this.userName});
+  const groupTile({
+    required this.groupId,
+    required this.groupName,
+    required this.userName,
+  });
 
   @override
   State<groupTile> createState() => _groupTileState();
@@ -24,10 +24,9 @@ class _groupTileState extends State<groupTile> {
         nextScreen(
             context,
             chatPage(
-              groupId: widget.groupId,
-              groupName: widget.groupName,
-              userName: widget.userName,
-            ));
+                groupId: widget.groupId,
+                groupName: widget.groupName,
+                userName: widget.userName));
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
