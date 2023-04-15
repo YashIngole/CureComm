@@ -180,7 +180,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: _buildTextComposer(),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 21,
                 )
               ],
             ),
