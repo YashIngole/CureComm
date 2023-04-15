@@ -4,6 +4,7 @@ import 'package:healthchats/chatroomScreen.dart';
 import 'package:healthchats/constants.dart';
 import 'package:healthchats/helper/helperFunction.dart';
 import 'package:healthchats/navigationbar.dart';
+import 'package:healthchats/profile.dart';
 import 'package:healthchats/service/auth-service.dart';
 import 'home.dart';
 import 'package:healthchats/searchbar.dart';
@@ -81,7 +82,9 @@ class _BodyState extends State<Body> {
                 child: Expanded(
                     child: IconButton(
                   alignment: Alignment.centerRight,
-                  onPressed: () {},
+                  onPressed: () {
+                    nextScreen(context, profilePage());
+                  },
                   icon: Icon(Icons.person),
                   iconSize: 30,
                 )),
@@ -158,7 +161,7 @@ class _BodyState extends State<Body> {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => chatbotscreen()),
+            MaterialPageRoute(builder: (context) => QueryChat()),
           );
         },
         splashColor: kbackgroundColor2,

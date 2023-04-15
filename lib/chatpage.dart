@@ -130,7 +130,7 @@ class _chatPageState extends State<chatPage> {
           return Container();
         }
         // Wait for the ListView to build before scrolling to the bottom
-        WidgetsBinding.instance!.addPostFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           _scrollController.animateTo(
             _scrollController.position.maxScrollExtent,
             duration: Duration(milliseconds: 300),

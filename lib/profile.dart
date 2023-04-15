@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:healthchats/constants.dart';
 import 'package:healthchats/service/auth-service.dart';
 import 'navigationbar.dart';
 import 'helper/helperFunction.dart';
@@ -38,6 +39,9 @@ class _profilePageState extends State<profilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: kthemecolor,
+      ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 40, vertical: 170),
         child: Column(
