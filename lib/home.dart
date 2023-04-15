@@ -1,7 +1,9 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+// ignore_for_file: override_on_non_overriding_member, annotate_overrides, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:healthchats/body.dart';
+import 'package:healthchats/constants.dart';
+
 import 'package:healthchats/navigationbar.dart';
 import 'package:healthchats/service/auth-service.dart';
 import 'helper/helperFunction.dart';
@@ -9,7 +11,8 @@ import 'helper/helperFunction.dart';
 import 'backgroundgradient.dart';
 
 class Home extends StatefulWidget {
-  @override
+  const Home({Key? key}) : super(key: key);
+
   State<Home> createState() => _HomeState();
 }
 
@@ -36,9 +39,9 @@ class _HomeState extends State<Home> {
     });
   }
 
+  @override
   static final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
         key: scaffoldKey,
@@ -46,13 +49,15 @@ class _HomeState extends State<Home> {
         // bottomNavigationBar: bottomnav(),
 
         // appBar: BuildAppBar(),
-        body: Stack(
-          children: [
-            BackgroundGradient(),
-            Body(
-              scaffoldKey: scaffoldKey,
-            ),
-          ],
+        body: Container(
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            colors: [kbackgroundColor2, Color.fromARGB(255, 238, 236, 232)],
+          )),
+          child: Body(
+            scaffoldKey: scaffoldKey,
+          ),
         ),
         backgroundColor:
             Colors.transparent, // set background color to transparent

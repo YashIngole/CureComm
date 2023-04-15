@@ -28,6 +28,9 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  chat_gpt_sdk:
+    git:
+      url: https://github.com/iampawan/Flutter-ChatGPT.git
   cloud_firestore: ^4.4.5
   cupertino_icons: ^1.0.2
   expand_tap_area: ^1.1.1
@@ -35,23 +38,26 @@ dependencies:
   firebase_core: ^2.8.0
   flutter:
     sdk: flutter
-  http: ^0.13.5
-  flutter_svg: ^0.22.0
+  flutter_dotenv: ^5.0.2
+  flutter_launcher_icons: ^0.13.0
   get: ^4.6.5
   google_fonts: ^2.0.0
+  http: ^0.13.5
+  icons_launcher: ^2.1.0
   shared_preferences: ^2.0.20
   side_navigation: ^1.0.4
-  chat_gpt_sdk:
-    git:
-      url: https://github.com/iampawan/Flutter-ChatGPT.git
-  flutter_dotenv: ^5.0.2
   velocity_x: ^3.6.0
+  xml: ^6.2.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-    
+
+flutter_icons:
+  image_path: 'assets\curecomm_icon.png'
+  ios: true
+  android: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -67,7 +73,7 @@ flutter:
     - assets/pana1.png
     - assets/icons1/
     - assets/images1/
-    
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -4,6 +4,7 @@ import 'package:healthchats/chatroomScreen.dart';
 import 'package:healthchats/constants.dart';
 import 'package:healthchats/helper/helperFunction.dart';
 import 'package:healthchats/profile.dart';
+import 'package:healthchats/searchbar.dart';
 import 'package:healthchats/service/auth-service.dart';
 
 class Body extends StatefulWidget {
@@ -40,7 +41,9 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Column(
+      
+      children: [
       const SizedBox(
         height: 20,
       ),
@@ -68,7 +71,7 @@ class _BodyState extends State<Body> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "\u{1F44B} Hello, $userName",
+                    "\u{1F44B} Hello, \n $userName",
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -99,7 +102,7 @@ class _BodyState extends State<Body> {
       const SizedBox(
         height: 50,
       ),
-      // searchbar(),
+      searchbar(),
       const SizedBox(height: 40),
 
       //chatroom widget

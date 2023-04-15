@@ -128,10 +128,10 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 247, 185, 127),
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 247, 185, 127),
+          backgroundColor: ktilecolor,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
-            onPressed: () => nextScreen(context, Home()),
+            onPressed: () => nextScreen(context, const Home()),
           ),
           title: const Text(
             "Disease Troubleshooter",
@@ -145,7 +145,7 @@ class _ChatScreenState extends State<ChatScreen> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                const Color.fromARGB(255, 247, 185, 127),
+                ktilecolor,
                 Colors.blueGrey.shade100,
               ],
             ),

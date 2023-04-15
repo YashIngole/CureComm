@@ -189,7 +189,7 @@ class _registerPageState extends State<registerPage> {
           await helperFunctions.saveUserEmailSF(email);
           await helperFunctions.saveUsernameSF(Fullname);
 
-          nextScreenReplace(context, Home());
+          nextScreenReplace(context, const Home());
         } else {
           showSnackbar(
             context,

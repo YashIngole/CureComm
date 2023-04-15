@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:healthchats/helper/helperFunction.dart';
 import 'package:healthchats/home.dart';
@@ -6,6 +8,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'auth/loginpage.dart';
 import 'package:flutter/foundation.dart';
 import 'shared/constants.dart';
+
 
 
 void main() async {
