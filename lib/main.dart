@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:healthchats/helper/helperFunction.dart';
 import 'package:healthchats/home.dart';
-import 'package:healthchats/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'auth/loginpage.dart';
-import 'firebase_options.dart';
 import 'package:flutter/foundation.dart';
 import 'shared/constants.dart';
 
-import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +22,7 @@ void main() async {
     await Firebase.initializeApp();
   }
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 // void main() async {
@@ -42,10 +39,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  @override
   bool _isSignedIn = false;
+  @override
   void initState() {
-    // TODO: implement initState
+   
     super.initState();
     getUserLoggedInStatus();
   }
@@ -69,7 +66,7 @@ class _MyAppState extends State<MyApp> {
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
           visualDensity: VisualDensity.adaptivePlatformDensity),  
       home:
-          _isSignedIn ? Home() : logInPage(), //calling home widget on home.dart
+          _isSignedIn ? Home() : const logInPage(), //calling home widget on home.dart
     );
   }
 }

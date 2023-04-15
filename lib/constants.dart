@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names, unnecessary_const
+
 import 'package:flutter/material.dart';
 
 const Ktextcolor = Color.fromARGB(0, 198, 109, 108);
@@ -133,7 +135,7 @@ void showSnackbar(context, color, message) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     content: Text(
       message,
-      style: TextStyle(fontSize: 14),
+      style: const TextStyle(fontSize: 14),
     ),
     backgroundColor: color,
     duration: const Duration(seconds: 2),

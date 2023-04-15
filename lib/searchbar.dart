@@ -5,11 +5,11 @@ import 'constants.dart';
 Container searchbar() {
   return Container(
     //widget for searh bar
-    padding: EdgeInsets.only(top: 10),
+    padding: const EdgeInsets.only(top: 10),
     child: Container(
       // height: 62,
       // width: 344, //figma dimensions
-      margin: EdgeInsets.symmetric(horizontal: kdefaultpadding),
+      margin: const EdgeInsets.symmetric(horizontal: kdefaultpadding),
       height: 54, //default dimension
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.4),

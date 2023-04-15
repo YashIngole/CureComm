@@ -11,118 +11,118 @@ Drawer navbar(BuildContext context, String userName, String email) {
 
   return Drawer(
     child: ListView(
-      padding: EdgeInsets.symmetric(vertical: 30),
+      padding: const EdgeInsets.symmetric(vertical: 30),
       children: [
-        Icon(
+        const Icon(
           Icons.account_circle_rounded,
           size: 150,
           color: Colors.grey,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(
           userName,
           textAlign: TextAlign.center,
-          style: TextStyle(fontWeight: FontWeight.w800),
+          style: const TextStyle(fontWeight: FontWeight.w800),
         ),
         Text(
           email,
           textAlign: TextAlign.center,
-          style: TextStyle(fontWeight: FontWeight.w600),
+          style: const TextStyle(fontWeight: FontWeight.w600),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.person,
             color: Colors.purple,
           ),
-          title: Text("Profile"),
+          title: const Text("Profile"),
           onTap: () {
             nextScreen(context, profilePage());
           },
         ),
+        // ListTile(
+        //   leading: const Icon(
+        //     Icons.favorite,
+        //     color: Colors.pink,
+        //   ),
+        //   title: const Text("Favorites"),
+        //   onTap: () {},
+        // ),
         ListTile(
-          leading: Icon(
-            Icons.favorite,
-            color: Colors.pink,
-          ),
-          title: Text("Favorites"),
-          onTap: () {},
-        ),
-        ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.people,
             color: Colors.blue,
           ),
-          title: Text("Friends"),
+          title: const Text("Friends"),
           onTap: () {},
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.share,
             color: Colors.green,
           ),
-          title: Text("Share"),
+          title: const Text("Share"),
           onTap: () {},
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.notifications,
             color: Colors.yellow,
           ),
-          title: Text("Requests"),
+          title: const Text("Requests"),
           onTap: () {},
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.settings,
             color: Colors.black87,
           ),
-          title: Text("Settings"),
+          title: const Text("Settings"),
           onTap: () {},
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.description,
             color: Colors.brown,
           ),
-          title: Text("Policies"),
+          title: const Text("Policies"),
           onTap: () {},
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.info,
             color: Colors.deepOrange,
           ),
-          title: Text("About"),
+          title: const Text("About"),
           onTap: () {},
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.logout,
             color: Colors.purple,
           ),
-          title: Text("Log out"),
+          title: const Text("Log out"),
           onTap: () async {
             showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  title: Text("Log out"),
-                  content: Text("Are you sure you want to log out?"),
+                  title: const Text("Log out"),
+                  content: const Text("Are you sure you want to log out?"),
                   actions: [
                     TextButton(
-                      child: Text("Cancel"),
+                      child: const Text("Cancel"),
                       onPressed: () => Navigator.pop(context),
                     ),
                     TextButton(
-                      child: Text("Log out"),
+                      child: const Text("Log out"),
                       onPressed: () {
                         authService.signOut().whenComplete(() {
-                          nextScreenReplace(context, loginpage2());
+                          nextScreenReplace(context, const loginpage2());
                         });
                       },
                     ),

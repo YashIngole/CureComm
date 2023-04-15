@@ -1,13 +1,10 @@
-import 'dart:collection';
+// ignore_for_file: camel_case_types, non_constant_identifier_names, use_build_context_synchronously
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:healthchats/chatpage.dart';
 import 'package:healthchats/constants.dart';
-import 'package:healthchats/diseaseTile.dart';
 import 'package:healthchats/helper/helperFunction.dart';
 import 'package:healthchats/service/database-service.dart';
 
@@ -32,7 +29,6 @@ class _searchPageState extends State<searchPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCurretUserIdAndName();
     searchGroups("");
@@ -62,7 +58,7 @@ class _searchPageState extends State<searchPage> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: kthemecolor,
-        title: Text(
+        title: const Text(
           "Search",
           style: TextStyle(
               fontSize: 27, fontWeight: FontWeight.bold, color: Colors.white),
@@ -72,16 +68,16 @@ class _searchPageState extends State<searchPage> {
         children: [
           Container(
             color: kthemecolor,
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Row(
               children: [
                 Expanded(
                   child: TextField(
                     controller: searchController,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                     ),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         hintText: "Search Groups...",
                         border: InputBorder.none,
                         hintStyle:
@@ -95,13 +91,13 @@ class _searchPageState extends State<searchPage> {
                   decoration: BoxDecoration(
                       color: kthemecolor.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(40)),
-                  child: Icon(Icons.search),
+                  child: const Icon(Icons.search),
                 ),
               ],
             ),
           ),
           isLoading
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(
                     color: kthemecolor,
                   ),
@@ -120,7 +116,7 @@ class _searchPageState extends State<searchPage> {
     final snapshot = await FirebaseFirestore.instance
         .collection('groups')
         .where('groupName', isGreaterThanOrEqualTo: searchText)
-        .where('groupName', isLessThan: searchText + 'z')
+        .where('groupName', isLessThan: '${searchText}z')
         .get();
 
     setState(() {
@@ -135,14 +131,14 @@ class _searchPageState extends State<searchPage> {
       return Container();
     }
     if (isLoading) {
-      return Center(
+      return const Center(
         child: CircularProgressIndicator(
           color: kthemecolor,
         ),
       );
     }
     if (searchResults.isEmpty) {
-      return Center(
+      return const Center(
         child: Text("No results found"),
       );
     }
@@ -176,12 +172,12 @@ class _searchPageState extends State<searchPage> {
             backgroundColor: kthemecolor,
             child: Text(
               groupName.substring(0, 1).toUpperCase(),
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
           title: Text(
             groupName,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           subtitle: Text("Admin : ${getName(admin)} "),
           trailing: InkWell(
@@ -195,7 +191,7 @@ class _searchPageState extends State<searchPage> {
               if (isJoining) {
                 showSnackbar(
                     context, Colors.green, "Successfully joined the group");
-                Future.delayed(Duration(seconds: 2), () {
+                Future.delayed(const Duration(seconds: 2), () {
                   nextScreen(
                       context,
                       chatPage(
@@ -214,8 +210,9 @@ class _searchPageState extends State<searchPage> {
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.black,
                         border: Border.all(color: Colors.white, width: 1)),
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    child: Text(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
+                    child: const Text(
                       "Joined",
                       style: TextStyle(color: Colors.white),
                     ),
@@ -225,8 +222,9 @@ class _searchPageState extends State<searchPage> {
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
                         border: Border.all(color: kthemecolor, width: 1)),
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    child: Text(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
+                    child: const Text(
                       "Join",
                       style: TextStyle(color: kthemecolor),
                     ),

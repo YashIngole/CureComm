@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, unnecessary_null_comparison
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:healthchats/helper/helperFunction.dart';
 import 'package:healthchats/service/database-service.dart';

@@ -1,6 +1,5 @@
 import 'constants.dart';
 import 'package:flutter/material.dart';
-import 'home.dart';
 
 Container bottomnav() {
   return Container(
@@ -24,14 +23,14 @@ Container bottomnav() {
         //widget array for icon buttons at bottom of the navigation bar
         Transform.scale(
             scale: 1,
-            child: IconButton(onPressed: () {}, icon: Icon(Icons.home))),
+            child: IconButton(onPressed: () {}, icon: const Icon(Icons.home))),
         Transform.scale(
             scale: 1,
-            child: IconButton(onPressed: () {}, icon: Icon(Icons.favorite))),
+            child: IconButton(onPressed: () {}, icon: const Icon(Icons.favorite))),
         Transform.scale(
             scale: 1,
             child:
-                IconButton(onPressed: () {}, icon: Icon(Icons.notifications))),
+                IconButton(onPressed: () {}, icon: const Icon(Icons.notifications))),
       ],
     ),
   );

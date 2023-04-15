@@ -1,10 +1,10 @@
+// ignore_for_file: file_names, camel_case_types
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:healthchats/chatroomScreen.dart';
 import 'package:healthchats/constants.dart';
-import 'package:healthchats/home.dart';
 import 'package:healthchats/service/database-service.dart';
-import 'service/auth-service.dart';
 
 class groupInfo extends StatefulWidget {
   final String groupId;
@@ -46,13 +46,14 @@ class _groupInfoState extends State<groupInfo> {
     return res.substring(0, res.indexOf("_"));
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
         backgroundColor: kthemecolor,
-        title: Text("Group Info"),
+        title: const Text("Group Info"),
         actions: [
           IconButton(
               onPressed: () {
@@ -60,22 +61,22 @@ class _groupInfoState extends State<groupInfo> {
                   context: context,
                   builder: (context) {
                     return AlertDialog(
-                      title: Text("Exit"),
-                      content: Text("Are you sure you want to exit the group?"),
+                      title: const Text("Exit"),
+                      content: const Text("Are you sure you want to exit the group?"),
                       actions: [
                         TextButton(
-                          child: Text("Cancel"),
+                          child: const Text("Cancel"),
                           onPressed: () => Navigator.pop(context),
                         ),
                         TextButton(
-                          child: Text("Log out"),
+                          child: const Text("Log out"),
                           onPressed: () {
                             databaseService(
                                     uid: FirebaseAuth.instance.currentUser!.uid)
                                 .toggleGroupJoin(widget.groupId,
                                     getName(widget.adminName), widget.groupName)
                                 .whenComplete(() {
-                              nextScreenReplace(context, chatRoomScreen());
+                              nextScreenReplace(context, const chatRoomScreen());
                             });
                           },
                         ),
@@ -84,15 +85,15 @@ class _groupInfoState extends State<groupInfo> {
                   },
                 );
               },
-              icon: Icon(Icons.exit_to_app))
+              icon: const Icon(Icons.exit_to_app))
         ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: kthemecolor.withOpacity(0.4)),
@@ -104,11 +105,11 @@ class _groupInfoState extends State<groupInfo> {
                     backgroundColor: kthemecolor,
                     child: Text(
                       widget.groupName.substring(0, 1).toUpperCase(),
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontWeight: FontWeight.w500, color: Colors.white),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Column(
@@ -116,22 +117,22 @@ class _groupInfoState extends State<groupInfo> {
                     children: [
                       Text(
                         "Group: ${widget.groupName}",
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                        style: const TextStyle(fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Text("Admin: ${widget.adminName}",
-                          style: TextStyle(fontWeight: FontWeight.w500))
+                          style: const TextStyle(fontWeight: FontWeight.w500))
                     ],
                   )
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(left: kdefaultpadding),
               child: Align(
                 alignment: Alignment.centerLeft,
@@ -173,7 +174,7 @@ class _groupInfoState extends State<groupInfo> {
                             getName(snapshot.data['members'][index])
                                 .substring(0, 1)
                                 .toUpperCase(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
@@ -195,7 +196,7 @@ class _groupInfoState extends State<groupInfo> {
             );
           }
         } else {
-          return Center(
+          return const Center(
               child: CircularProgressIndicator(
             color: kthemecolor,
           ));

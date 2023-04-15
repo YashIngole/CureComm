@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, camel_case_types
+
 import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'chatroomScreen.dart';
@@ -6,7 +8,8 @@ class textchatscreen extends StatelessWidget {
   final List<String> diseases;
   final int index;
 
-  textchatscreen({required this.diseases, required this.index});
+  const textchatscreen(
+      {super.key, required this.diseases, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class textchatscreen extends StatelessWidget {
           centerTitle: true,
           title: Text(
             diseases[index],
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           ),
           leading: IconButton(
             iconSize: 80,
@@ -32,18 +35,18 @@ class textchatscreen extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.more_vert_sharp,
                   size: 35,
                 ))
           ]),
       body: Column(
         children: [
-          Spacer(),
+          const Spacer(),
           Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
                 horizontal: kdefaultpadding, vertical: kdefaultpadding / 2),
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
             child: SafeArea(
                 child: Row(
               children: [
@@ -53,7 +56,7 @@ class textchatscreen extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: kiconcolor.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(40)),
-                    child: Row(children: [
+                    child: Row(children: const [
                       SizedBox(
                         width: kdefaultpadding,
                       ),

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types, non_constant_identifier_names, await_only_futures
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class databaseService {
@@ -97,7 +99,7 @@ class databaseService {
 
     List<dynamic> groups = await documentSnapshot['groups'];
 
-    if (groups.contains("${groupId}_${groupName}")) {
+    if (groups.contains("${groupId}_$groupName")) {
       return true;
     } else {
       return false;
@@ -116,19 +118,19 @@ class databaseService {
 
     //if user has our group then remove them or also in other part rejoin them
 
-    if (groups!.contains("${groupId}_${groupName}")) {
+    if (groups!.contains("${groupId}_$groupName")) {
       await userDocumentReference.update({
-        "groups": FieldValue.arrayRemove(["${groupId}_${groupName}"])
+        "groups": FieldValue.arrayRemove(["${groupId}_$groupName"])
       });
       await groupDocumentReference.update({
-        "members": FieldValue.arrayRemove(["${uid}_${userName}"])
+        "members": FieldValue.arrayRemove(["${uid}_$userName"])
       });
     } else {
       await userDocumentReference.update({
-        "groups": FieldValue.arrayUnion(["${groupId}_${groupName}"])
+        "groups": FieldValue.arrayUnion(["${groupId}_$groupName"])
       });
       await groupDocumentReference.update({
-        "members": FieldValue.arrayUnion(["${uid}_${userName}"])
+        "members": FieldValue.arrayUnion(["${uid}_$userName"])
       });
     }
   }

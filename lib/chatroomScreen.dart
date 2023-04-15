@@ -1,8 +1,7 @@
+// ignore_for_file: file_names, camel_case_types, non_constant_identifier_names
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:get/get.dart';
 import 'package:healthchats/constants.dart';
 import 'package:healthchats/diseaseTile.dart';
 import 'package:healthchats/searchpage.dart';
@@ -18,7 +17,6 @@ class chatRoomScreen extends StatefulWidget {
 }
 
 class _chatRoomScreenState extends State<chatRoomScreen> {
-  @override
   String UserName = "";
   String email = "";
   AuthService authService = AuthService();
@@ -35,6 +33,7 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
     return res.substring(res.indexOf("_") + 1);
   }
 
+  @override
   void initState() {
     super.initState();
     gettingUserData();
@@ -61,19 +60,20 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
           elevation: 0,
           backgroundColor: kthemecolor,
-          title: Text("Groups"),
+          title: const Text("Groups"),
           actions: [
             IconButton(
                 onPressed: () {
-                  nextScreen(context, searchPage());
+                  nextScreen(context, const searchPage());
                 },
-                icon: Icon(Icons.search))
+                icon: const Icon(Icons.search))
           ],
         ),
         body: groupList(),
@@ -83,7 +83,7 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
           },
           elevation: 0,
           backgroundColor: kthemecolor,
-          child: Icon(
+          child: const Icon(
             Icons.add,
             color: Colors.white,
             size: 30,
@@ -98,7 +98,7 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
         builder: (context) {
           return StatefulBuilder(builder: ((context, setState) {
             return AlertDialog(
-              title: Text(
+              title: const Text(
                 "Create a new group",
                 textAlign: TextAlign.left,
               ),
@@ -106,7 +106,7 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   _isLoading == true
-                      ? Center(
+                      ? const Center(
                           child: CircularProgressIndicator(
                             color: kthemecolor,
                           ),
@@ -119,13 +119,13 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: kthemecolor),
+                                  borderSide: const BorderSide(color: kthemecolor),
                                   borderRadius: BorderRadius.circular(20)),
                               errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.red),
+                                  borderSide: const BorderSide(color: Colors.red),
                                   borderRadius: BorderRadius.circular(20)),
                               focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: kthemecolor),
+                                  borderSide: const BorderSide(color: kthemecolor),
                                   borderRadius: BorderRadius.circular(20))),
                         )
                 ],
@@ -135,8 +135,8 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text("CANCEL"),
                   style: ElevatedButton.styleFrom(backgroundColor: kthemecolor),
+                  child: const Text("CANCEL"),
                 ),
                 ElevatedButton(
                   onPressed: () async {
@@ -156,8 +156,8 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
                           context, Colors.green, "Group created successfully.");
                     }
                   },
-                  child: Text("CREATE"),
                   style: ElevatedButton.styleFrom(backgroundColor: kthemecolor),
+                  child: const Text("CREATE"),
                 )
               ],
             );
@@ -203,7 +203,7 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
 
   noGroupWidget() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -218,10 +218,10 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
               size: 75,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
+          const Text(
             "You've not joined any group, tap on the add button to add a group",
             textAlign: TextAlign.center,
           )

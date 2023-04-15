@@ -18,20 +18,19 @@ class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _controller = TextEditingController();
   final List<ChatMessage> _messages = [];
   late OpenAI? chatGPT;
-  bool _isImageSearch = false;
   bool _isTyping = false;
 
   @override
   void initState() {
     chatGPT = OpenAI.instance.build(
       token: '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',
-      baseOption: HttpSetup(receiveTimeout: Duration(seconds: 6)),
+      baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 6)),
     );
 
     // Add a welcome message to the chat
     _messages.insert(
       0,
-      ChatMessage(
+      const ChatMessage(
         text: "Welcome to the Disease Troubleshooter! How can I assist you?",
         sender: "bot",
         isImage: false,
@@ -116,7 +115,6 @@ class _ChatScreenState extends State<ChatScreen> {
           IconButton(
             icon: const Icon(Icons.send),
             onPressed: () {
-              _isImageSearch = false;
               _sendMessage();
             },
           ),
@@ -128,9 +126,9 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 247, 185, 127),
+        backgroundColor: const Color.fromARGB(255, 247, 185, 127),
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 247, 185, 127),
+          backgroundColor: const Color.fromARGB(255, 247, 185, 127),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () => nextScreen(context, Home()),
@@ -147,7 +145,7 @@ class _ChatScreenState extends State<ChatScreen> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color.fromARGB(255, 247, 185, 127),
+                const Color.fromARGB(255, 247, 185, 127),
                 Colors.blueGrey.shade100,
               ],
             ),
@@ -179,7 +177,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   child: _buildTextComposer(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 21,
                 )
               ],

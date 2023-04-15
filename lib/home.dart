@@ -1,8 +1,7 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:healthchats/body.dart';
-import 'package:healthchats/constants.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:healthchats/bottomnav.dart';
 import 'package:healthchats/navigationbar.dart';
 import 'package:healthchats/service/auth-service.dart';
 import 'helper/helperFunction.dart';
@@ -18,6 +17,7 @@ class _HomeState extends State<Home> {
   String userName = "";
   String email = "";
   AuthService authService = AuthService();
+  @override
   void initState() {
     super.initState();
     gettingUserData();
@@ -36,9 +36,9 @@ class _HomeState extends State<Home> {
     });
   }
 
-  @override
   static final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         key: scaffoldKey,

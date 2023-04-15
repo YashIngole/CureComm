@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:healthchats/chatpage.dart';
 import 'package:healthchats/constants.dart';
@@ -6,7 +8,7 @@ class groupTile extends StatefulWidget {
   final String userName;
   final String groupName;
   final String groupId;
-  const groupTile({
+  const groupTile({super.key, 
     required this.groupId,
     required this.groupName,
     required this.userName,
@@ -29,7 +31,7 @@ class _groupTileState extends State<groupTile> {
                 userName: widget.userName));
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
         child: ListTile(
           leading: CircleAvatar(
             radius: 30,
@@ -38,16 +40,16 @@ class _groupTileState extends State<groupTile> {
               widget.groupName.substring(0, 1).toUpperCase(),
               textAlign: TextAlign.center,
               style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                  const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
             ),
           ),
           title: Text(
             widget.groupName,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           subtitle: Text(
             "Join the conversion as ${widget.userName}",
-            style: TextStyle(fontSize: 13),
+            style: const TextStyle(fontSize: 13),
           ),
         ),
       ),

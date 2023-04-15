@@ -4,7 +4,7 @@ import 'chat_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(QueryChat());
+  runApp(const QueryChat());
 }
 
 class QueryChat extends StatelessWidget {
@@ -18,15 +18,15 @@ class QueryChat extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
         fontFamily: 'Montserrat', // Custom font
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: kthemecolor, // Custom app bar color
           foregroundColor: Colors.white, // Custom app bar text color
           centerTitle: true,
-          titleTextStyle: const TextStyle(
+          titleTextStyle: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w600,
           ),
-          iconTheme: const IconThemeData(
+          iconTheme: IconThemeData(
             color: Colors.white,
           ),
         ),

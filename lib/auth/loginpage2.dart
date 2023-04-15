@@ -1,8 +1,8 @@
-import 'dart:math';
+
+// ignore_for_file: camel_case_types, non_constant_identifier_names, avoid_print, use_build_context_synchronously
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:healthchats/auth/registerPage.dart';
@@ -31,24 +31,24 @@ class _loginpage2State extends State<loginpage2> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _isLoading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(color: kthemecolor),
             )
           : SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
                 child: Form(
                   key: formkey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "Join the conversation!",
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
-                      Text(
+                      const Text(
                         "And see what they are talking about",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
@@ -59,7 +59,7 @@ class _loginpage2State extends State<loginpage2> {
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
                             labelText: "Email",
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.email,
                               color: kthemecolor,
                             )),
@@ -80,14 +80,14 @@ class _loginpage2State extends State<loginpage2> {
 
                       // validator check
 
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       TextFormField(
                         obscureText: true,
                         decoration: textInputDecoration.copyWith(
                             labelText: "Password",
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.lock,
                               color: kthemecolor,
                             )),
@@ -105,40 +105,40 @@ class _loginpage2State extends State<loginpage2> {
                           });
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: kthemecolor,
+                              backgroundColor: kthemecolor,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30))),
                           onPressed: () {
                             login();
                           },
-                          child: Text("Sign in",
+                          child: const Text("Sign in",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16)),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text.rich(TextSpan(
                           text: "Don't have an account?",
-                          style: TextStyle(color: Colors.black, fontSize: 14),
+                          style: const TextStyle(color: Colors.black, fontSize: 14),
                           children: <TextSpan>[
                             TextSpan(
                                 text: " Register here",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.black,
                                     decoration: TextDecoration.underline),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    nextScreen(context, registerPage());
+                                    nextScreen(context, const registerPage());
                                   })
                           ]))
                     ],

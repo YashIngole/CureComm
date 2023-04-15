@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types, non_constant_identifier_names, avoid_print, use_build_context_synchronously
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:healthchats/auth/loginpage2.dart';
@@ -26,28 +28,28 @@ class _registerPageState extends State<registerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _isLoading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(color: kthemecolor),
             )
           : SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
                 child: Form(
                   key: formkey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "Welcome Onboard",
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
-                      Text(
+                      const Text(
                         "Let's help you get onboard!",
                         style: TextStyle(fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Opacity(
@@ -59,7 +61,7 @@ class _registerPageState extends State<registerPage> {
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
                             labelText: "Full Name",
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.person,
                               color: kthemecolor,
                             )),
@@ -77,13 +79,13 @@ class _registerPageState extends State<registerPage> {
                           }
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
                             labelText: "Email",
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.email,
                               color: kthemecolor,
                             )),
@@ -104,14 +106,14 @@ class _registerPageState extends State<registerPage> {
 
 // validator check
 
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       TextFormField(
                         obscureText: true,
                         decoration: textInputDecoration.copyWith(
                             labelText: "Password",
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.lock,
                               color: kthemecolor,
                             )),
@@ -129,40 +131,40 @@ class _registerPageState extends State<registerPage> {
                           });
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: kthemecolor,
+                              backgroundColor: kthemecolor,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30))),
                           onPressed: () {
                             register();
                           },
-                          child: Text("Register now!",
+                          child: const Text("Register now!",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16)),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text.rich(TextSpan(
                           text: "Already Have an account?",
-                          style: TextStyle(color: Colors.black, fontSize: 14),
+                          style: const TextStyle(color: Colors.black, fontSize: 14),
                           children: <TextSpan>[
                             TextSpan(
                                 text: " Login now",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.black,
                                     decoration: TextDecoration.underline),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    nextScreen(context, loginpage2());
+                                    nextScreen(context, const loginpage2());
                                   })
                           ]))
                     ],

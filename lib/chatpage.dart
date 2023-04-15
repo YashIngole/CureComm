@@ -1,6 +1,6 @@
+// ignore_for_file: camel_case_types, annotate_overrides
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import 'package:flutter/material.dart';
 import 'package:healthchats/constants.dart';
@@ -26,7 +26,7 @@ class _chatPageState extends State<chatPage> {
   Stream<QuerySnapshot>? chats;
   String admin = "";
   TextEditingController messageController = TextEditingController();
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -65,7 +65,7 @@ class _chatPageState extends State<chatPage> {
                       groupName: widget.groupName,
                     ));
               },
-              icon: Icon(Icons.info))
+              icon: const Icon(Icons.info))
         ],
       ),
       body: Column(
@@ -78,7 +78,7 @@ class _chatPageState extends State<chatPage> {
             alignment: Alignment.bottomCenter,
             width: MediaQuery.of(context).size.width,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               width: MediaQuery.of(context).size.width,
               color: Colors.grey[700],
               child: Row(
@@ -86,13 +86,13 @@ class _chatPageState extends State<chatPage> {
                   Expanded(
                       child: TextFormField(
                     controller: messageController,
-                    style: TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
                         hintText: "Send a message",
                         hintStyle: TextStyle(color: Colors.white, fontSize: 16),
                         border: InputBorder.none),
                   )),
-                  SizedBox(
+                  const SizedBox(
                     width: 12,
                   ),
                   GestureDetector(
@@ -105,7 +105,7 @@ class _chatPageState extends State<chatPage> {
                       decoration: BoxDecoration(
                           color: kthemecolor,
                           borderRadius: BorderRadius.circular(30)),
-                      child: Center(
+                      child: const Center(
                         child: Icon(
                           Icons.send,
                           color: Colors.white,
@@ -133,7 +133,7 @@ class _chatPageState extends State<chatPage> {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           _scrollController.animateTo(
             _scrollController.position.maxScrollExtent,
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             curve: Curves.easeOut,
           );
         });

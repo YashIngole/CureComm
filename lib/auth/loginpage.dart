@@ -1,7 +1,10 @@
+// ignore_for_file: camel_case_types, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:healthchats/auth/loginpage2.dart';
 import 'package:healthchats/constants.dart';
 
+// ignore: camel_case_types
 class logInPage extends StatefulWidget {
   const logInPage({super.key});
 
@@ -16,7 +19,7 @@ class _logInPageState extends State<logInPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 80),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
           child: Form(
               key: formkey,
               child: Column(
@@ -30,7 +33,7 @@ class _logInPageState extends State<logInPage> {
                   const SizedBox(
                     height: 60,
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: kdefaultpadding * 1.2),
                     child: Text(
                         "HealthChats allows people with similar health conditions to connect with each other virtualy and share their experiences",
@@ -44,14 +47,14 @@ class _logInPageState extends State<logInPage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: kthemecolor,
+                          backgroundColor: kthemecolor,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20))),
                       onPressed: () {
-                        nextScreen(context, loginpage2());
+                        nextScreen(context, const loginpage2());
                       },
-                      child: Text("Get Started",
+                      child: const Text("Get Started",
                           style: TextStyle(color: Colors.white, fontSize: 16)),
                     ),
                   )

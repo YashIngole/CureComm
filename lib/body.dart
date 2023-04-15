@@ -3,11 +3,8 @@ import 'package:healthchats/chatbotscreen.dart';
 import 'package:healthchats/chatroomScreen.dart';
 import 'package:healthchats/constants.dart';
 import 'package:healthchats/helper/helperFunction.dart';
-import 'package:healthchats/navigationbar.dart';
 import 'package:healthchats/profile.dart';
 import 'package:healthchats/service/auth-service.dart';
-import 'home.dart';
-import 'package:healthchats/searchbar.dart';
 
 class Body extends StatefulWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -44,176 +41,187 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      SizedBox(
+      const SizedBox(
         height: 20,
       ),
       SafeArea(
         child: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Expanded(
-                    child: IconButton(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Expanded(
+                child: IconButton(
                   alignment: Alignment.bottomLeft,
                   onPressed: () {
                     widget.scaffoldKey.currentState!.openDrawer();
                   },
-                  icon: Icon(Icons.menu),
+                  icon: const Icon(Icons.menu),
                   iconSize: 30,
-                )),
+                  color: Colors.black,
+                ),
               ),
-              Expanded(
-                  child: Column(
-                // crossAxisAlignment: CrossAxisAlignment.center,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "\u{1F44B} Hello \n $userName", //hello at the appbar with shaking emoji
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                    "\u{1F44B} Hello, $userName",
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ],
-              )),
-              Padding(
-                padding: EdgeInsets.only(right: 20),
-                child: Expanded(
-                    child: IconButton(
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: Expanded(
+                child: IconButton(
                   alignment: Alignment.centerRight,
                   onPressed: () {
                     nextScreen(context, profilePage());
                   },
-                  icon: Icon(Icons.person),
+                  icon: const Icon(Icons.person),
                   iconSize: 30,
-                )),
-              )
-            ]),
+                  color: Colors.black,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
-      SizedBox(
-        height: 20,
+      const SizedBox(
+        height: 50,
       ),
-      searchbar(),
-      //widget for tiles
-      SizedBox(height: 20),
+      // searchbar(),
+      const SizedBox(height: 40),
 
       //chatroom widget
       InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => chatRoomScreen()),
-          );
-        },
-        splashColor: kbackgroundColor2,
-        child: Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: kdefaultpadding,
-            vertical: kdefaultpadding,
-          ),
-          height: 150,
-          width: 350,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(22),
-            boxShadow: [kdefaultshadow],
-            color: ktilecolor,
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                right: 0,
-                top: 0,
-                child: Container(
-                  padding: EdgeInsets.symmetric(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const chatRoomScreen()),
+            );
+          },
+          splashColor: kbackgroundColor2,
+          child: Container(
+            margin: const EdgeInsets.symmetric(
+              horizontal: kdefaultpadding * 2,
+              vertical: kdefaultpadding / 2,
+            ),
+            height: 150,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(22),
+              color: ktilecolor,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: kdefaultpadding,
                   ),
-                  height: 160,
-                  width: 200,
-                  child: Opacity(
-                    opacity: 1,
-                    child: Image.asset(
-                      "assets/pana1.png",
-                      fit: BoxFit.contain,
+                  height: 150,
+                  width: 150,
+                  child: Image.asset(
+                    "assets/pana1.png",
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                const Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: kdefaultpadding / 2,
+                      vertical: kdefaultpadding,
+                    ),
+                    child: Text(
+                      "Chat Rooms",
+                      style: TextStyle(
+                        color: kthemecolor,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Positioned(
-                left: kdefaultpadding,
-                bottom: kdefaultpadding,
-                top: kdefaultpadding + 35,
-                right: kdefaultpadding,
-                child: Text(
-                  "Chat Rooms",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 198, 104, 104),
-                    fontSize: 24,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+              ],
+            ),
+          )),
+      const SizedBox(
+        height: 30,
       ),
-// chatbot tile
       InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => QueryChat()),
-          );
-        },
-        splashColor: kbackgroundColor2,
-        child: Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: kdefaultpadding,
-            vertical: kdefaultpadding,
-          ),
-          height: 150,
-          width: 350,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(22),
-            boxShadow: [kdefaultshadow],
-            color: ktilecolor,
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                right: 0,
-                top: 0,
-                child: Container(
-                  padding: EdgeInsets.symmetric(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const QueryChat()),
+            );
+          },
+          splashColor: kbackgroundColor2,
+          child: Container(
+            margin: const EdgeInsets.symmetric(
+              horizontal: kdefaultpadding * 2,
+              vertical: kdefaultpadding / 2,
+            ),
+            height: 150,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(22),
+              color: ktilecolor,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: kdefaultpadding,
                   ),
-                  height: 160,
-                  width: 200,
-                  child: Opacity(
-                    opacity: 1,
-                    child: Image.asset(
-                      "assets/pana2.png",
-                      fit: BoxFit.contain,
+                  height: 150,
+                  width: 150,
+                  child: Image.asset(
+                    "assets/pana2.png",
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                const Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: kdefaultpadding / 2,
+                      vertical: kdefaultpadding,
+                    ),
+                    child: Text(
+                      "AI powered Chatbot",
+                      style: TextStyle(
+                        color: kthemecolor,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Positioned(
-                left: kdefaultpadding,
-                bottom: kdefaultpadding,
-                top: kdefaultpadding + 20,
-                right: kdefaultpadding,
-                child: Text(
-                  "AI powered \n Chat Bot",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 198, 104, 104),
-                    fontSize: 24,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+              ],
+            ),
+          ))
     ]);
   }
 }
