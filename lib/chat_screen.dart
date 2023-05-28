@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:healthchats/constants.dart';
 import 'package:healthchats/home.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import 'chatmessage.dart';
 import 'threedots.dart';
 
@@ -23,7 +22,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     chatGPT = OpenAI.instance.build(
-      token: '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',
+      token: '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',
       baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 6)),
     );
 
@@ -90,7 +89,7 @@ class _ChatScreenState extends State<ChatScreen> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.white,
+        color: Color.fromARGB(255, 186, 200, 255),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),
@@ -107,7 +106,7 @@ class _ChatScreenState extends State<ChatScreen> {
               controller: _controller,
               onSubmitted: (value) => _sendMessage(),
               decoration: const InputDecoration.collapsed(
-                hintText: "Describe your symptoms or Medical Query",
+                hintText: "Type here...",
                 border: InputBorder.none,
               ),
             ),
@@ -126,63 +125,62 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 247, 185, 127),
-        appBar: AppBar(
-          backgroundColor: ktilecolor,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => nextScreen(context, const Home()),
-          ),
-          title: const Text(
-            "Disease Troubleshooter",
-            style: TextStyle(fontFamily: 'Montserrat'),
-          ),
-          elevation: 0,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => nextScreen(context, const Home()),
         ),
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                ktilecolor,
-                Colors.blueGrey.shade100,
-              ],
-            ),
+        title: const Text(
+          "Chat Bot",
+          style: TextStyle(
+            fontFamily: 'Montserrat',
+            color: Color.fromARGB(255, 20, 33, 103),
+            fontWeight: FontWeight.w400,
           ),
-          child: SafeArea(
-            child: Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                    reverse: true,
-                    padding: Vx.m8,
-                    itemCount: _messages.length,
-                    itemBuilder: (context, index) {
-                      return _messages[index];
-                    },
-                  ),
-                ),
-                if (_isTyping) const ThreeDots(),
-                Container(
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: _buildTextComposer(),
-                ),
-                const SizedBox(
-                  height: 21,
-                )
-              ],
-            ),
+        ),
+        elevation: 0,
+      ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/Frame 1.jpg"),
           ),
-        ));
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  reverse: true,
+                  padding: Vx.m4,
+                  itemCount: _messages.length,
+                  itemBuilder: (context, index) {
+                    return _messages[index];
+                  },
+                ),
+              ),
+              if (_isTyping) const ThreeDots(),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: _buildTextComposer(),
+              ),
+              const SizedBox(
+                height: 21,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

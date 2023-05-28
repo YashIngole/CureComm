@@ -3,6 +3,8 @@ import 'package:healthchats/constants.dart';
 import 'package:healthchats/profile.dart';
 import 'package:healthchats/service/auth-service.dart';
 import 'package:flutter/material.dart';
+import 'policies.dart';
+import "about_page.dart";
 
 Drawer navbar(BuildContext context, String userName, String email) {
   // String userName = "";
@@ -90,7 +92,9 @@ Drawer navbar(BuildContext context, String userName, String email) {
             color: Colors.brown,
           ),
           title: const Text("Policies"),
-          onTap: () {},
+          onTap: () {
+            nextScreen(context, TermsAndConditionsPage());
+          },
         ),
         ListTile(
           leading: const Icon(
@@ -98,7 +102,9 @@ Drawer navbar(BuildContext context, String userName, String email) {
             color: Colors.deepOrange,
           ),
           title: const Text("About"),
-          onTap: () {},
+          onTap: () {
+            nextScreen(context, AboutPage());
+          },
         ),
         ListTile(
           leading: const Icon(

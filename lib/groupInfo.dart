@@ -50,7 +50,6 @@ class _groupInfoState extends State<groupInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         elevation: 0,
         backgroundColor: kthemecolor,
         title: const Text("Group Info"),
@@ -62,7 +61,8 @@ class _groupInfoState extends State<groupInfo> {
                   builder: (context) {
                     return AlertDialog(
                       title: const Text("Exit"),
-                      content: const Text("Are you sure you want to exit the group?"),
+                      content: const Text(
+                          "Are you sure you want to exit the group?"),
                       actions: [
                         TextButton(
                           child: const Text("Cancel"),
@@ -76,7 +76,8 @@ class _groupInfoState extends State<groupInfo> {
                                 .toggleGroupJoin(widget.groupId,
                                     getName(widget.adminName), widget.groupName)
                                 .whenComplete(() {
-                              nextScreenReplace(context, const chatRoomScreen());
+                              nextScreenReplace(
+                                  context, const chatRoomScreen());
                             });
                           },
                         ),

@@ -56,7 +56,7 @@ class textchatscreen extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: kiconcolor.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(40)),
-                    child: Row(children: const [
+                    child: const Row(children: [
                       SizedBox(
                         width: kdefaultpadding,
                       ),

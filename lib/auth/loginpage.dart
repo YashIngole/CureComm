@@ -27,37 +27,54 @@ class _logInPageState extends State<logInPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   const SizedBox(
-                    height: 60,
+                    height: 20,
                   ),
                   Image.asset("assets/pana7.png"),
                   const SizedBox(
-                    height: 60,
+                    height: 70,
                   ),
                   const Padding(
                     padding: EdgeInsets.only(left: kdefaultpadding * 1.2),
-                    child: Text(
-                        "HealthChats allows people with similar health conditions to connect with each other virtualy and share their experiences",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w400)),
+                    child: Column(
+                      children: [
+                        Text(
+                            "Connect, Cure, and Catalyze: Empowering Health Journeys.",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w400)),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                            "Transforming lives by fostering a supportive community, providing personalized health chats, leveraging AI expertise, building resilience, and promoting holistic well-being on the health journey.",
+                            style: TextStyle(
+                                fontSize: 10, fontWeight: FontWeight.w400)),
+                      ],
+                    ),
                   ),
                   const SizedBox(
-                    height: 60,
+                    height: 150,
                   ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: kthemecolor,
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20))),
-                      onPressed: () {
-                        nextScreen(context, const loginpage2());
-                      },
-                      child: const Text("Get Started",
-                          style: TextStyle(color: Colors.white, fontSize: 16)),
+                  GestureDetector(
+                    onTap: () {
+                      nextScreen(context, loginpage2());
+                    },
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: const LinearGradient(colors: [
+                            Color.fromRGBO(143, 148, 251, 1),
+                            Color.fromRGBO(143, 148, 251, .6),
+                          ])),
+                      child: const Center(
+                        child: Text(
+                          "Get started",
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
-                  )
+                  ),
                 ],
               )),
         ),

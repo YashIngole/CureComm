@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthchats/constants.dart';
+// import 'package:healthchats/constants.dart';
 import 'chat_screen.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class QueryChat extends StatelessWidget {
         primarySwatch: Colors.green,
         fontFamily: 'Montserrat', // Custom font
         appBarTheme: const AppBarTheme(
-          backgroundColor: kthemecolor, // Custom app bar color
+          backgroundColor: Colors.white, // Custom app bar color
           foregroundColor: Colors.white, // Custom app bar text color
           centerTitle: true,
           titleTextStyle: TextStyle(

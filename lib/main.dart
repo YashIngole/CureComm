@@ -3,13 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:healthchats/helper/helperFunction.dart';
 import 'package:healthchats/home.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'auth/loginpage.dart';
 import 'package:flutter/foundation.dart';
 import 'shared/constants.dart';
-
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,7 +43,6 @@ class _MyAppState extends State<MyApp> {
   bool _isSignedIn = false;
   @override
   void initState() {
-   
     super.initState();
     getUserLoggedInStatus();
   }
@@ -64,12 +61,15 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Health Chats',
+      title: 'CureComm',
       theme: ThemeData(
-          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
-          visualDensity: VisualDensity.adaptivePlatformDensity),  
-      home:
-          _isSignedIn ? Home() : const logInPage(), //calling home widget on home.dart
+          primaryColor: Color(0xffebedf3),
+          // textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+          visualDensity: VisualDensity.adaptivePlatformDensity),
+      home: _isSignedIn
+          ? Home()
+          : const logInPage(), //calling home widget on home.dart
     );
   }
 }
+  

@@ -28,11 +28,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  carousel_slider: ^4.2.1
   chat_gpt_sdk:
     git:
       url: https://github.com/iampawan/Flutter-ChatGPT.git
   cloud_firestore: ^4.4.5
   cupertino_icons: ^1.0.2
+  curved_navigation_bar: ^1.0.3
   expand_tap_area: ^1.1.1
   firebase_auth: ^4.3.0
   firebase_core: ^2.8.0
@@ -46,6 +48,7 @@ dependencies:
   icons_launcher: ^2.1.0
   shared_preferences: ^2.0.20
   side_navigation: ^1.0.4
+  stories_for_flutter: ^1.2.0
   velocity_x: ^3.6.0
   xml: ^6.2.2
 
@@ -55,7 +58,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter_icons:
-  image_path: 'assets\curecomm_icon.png'
+  image_path: 'assets\logo.png'
   ios: true
   android: true
 

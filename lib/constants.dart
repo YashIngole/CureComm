@@ -8,7 +8,7 @@ const kdefaultpadding = 20.0;
 const ksearchcolor = const Color(0xfff08080);
 const kbackgroundColor2 = const Color(0xfffcc5ad);
 const ktilecolor = const Color(0xffFBC4AB);
-const kthemecolor = const Color(0xfff08080);
+const kthemecolor = Color.fromARGB(255, 13, 109, 252);
 const kdefaultshadow = BoxShadow(
     offset: Offset(0, 15),
     blurRadius: 27,
@@ -146,3 +146,10 @@ void showSnackbar(context, color, message) {
     ),
   ));
 }
+
+const LinearGradient tileGradient = LinearGradient(
+  colors: [
+    Color(0xFF3E4DAA),
+    Color(0xFF89A3E3),
+  ],
+);

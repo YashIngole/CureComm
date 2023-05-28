@@ -66,8 +66,9 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
         appBar: AppBar(
           centerTitle: true,
           elevation: 0,
-          backgroundColor: kthemecolor,
+          backgroundColor: Colors.white,
           title: const Text("Groups"),
+          foregroundColor: Colors.black,
           actions: [
             IconButton(
                 onPressed: () {
@@ -82,10 +83,10 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
             popUpDialog(context);
           },
           elevation: 0,
-          backgroundColor: kthemecolor,
+          backgroundColor: Color(0xffebedf3),
           child: const Icon(
             Icons.add,
-            color: Colors.white,
+            color: Colors.blue,
             size: 30,
           ),
         ));
@@ -119,13 +120,16 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(color: kthemecolor),
+                                  borderSide:
+                                      const BorderSide(color: kthemecolor),
                                   borderRadius: BorderRadius.circular(20)),
                               errorBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(color: Colors.red),
+                                  borderSide:
+                                      const BorderSide(color: Colors.red),
                                   borderRadius: BorderRadius.circular(20)),
                               focusedBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(color: kthemecolor),
+                                  borderSide:
+                                      const BorderSide(color: kthemecolor),
                                   borderRadius: BorderRadius.circular(20))),
                         )
                 ],
@@ -156,7 +160,7 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
                           context, Colors.green, "Group created successfully.");
                     }
                   },
-                  style: ElevatedButton.styleFrom(backgroundColor: kthemecolor),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                   child: const Text("CREATE"),
                 )
               ],
@@ -193,7 +197,7 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
         } else {
           return const Center(
             child: CircularProgressIndicator(
-              color: kthemecolor,
+              color: Colors.blue,
             ),
           );
         }
